@@ -49,7 +49,7 @@
 #### Configuração das Rotas
 
 1.  Configure as rotas usando `react-router-dom` para:
-    -   Tela de login.
+    -   Ecrã de login.
     -   Listagem de vídeos (Front Office).
     -   Adição de novos vídeos (Back Office).
 
