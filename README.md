@@ -4,10 +4,6 @@
 
 1.  Crie um diretório para o projeto backend e inicialize um projeto Node.js:
 
-    bash
-
-    Copy code
-
     `mkdir brightflix-backend
     cd brightflix-backend
     npm init -y`
@@ -15,10 +11,6 @@
 #### Instalação das Dependências Necessárias
 
 1.  Instale as seguintes dependências:
-
-    bash
-
-    Copy code
 
     `npm install express mongoose bcryptjs jsonwebtoken body-parser`
 
@@ -45,20 +37,12 @@
 1.  Crie dois diretórios separados para o Front Office e o Back Office.
 2.  Inicialize um projeto ReactJS em cada diretório:
 
-    bash
-
-    Copy code
-
     `npx create-react-app brightflix-frontend
     npx create-react-app brightflix-backoffice`
 
 #### Instalação das Dependências Necessárias
 
 1.  Instale as seguintes dependências em ambos os projetos:
-
-    bash
-
-    Copy code
 
     `npm install axios react-router-dom`
 
