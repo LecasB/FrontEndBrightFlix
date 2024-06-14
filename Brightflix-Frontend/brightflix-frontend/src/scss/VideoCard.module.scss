@@ -1,0 +1,43 @@
+// src/scss/VideoCard.module.scss
+
+.videoCard {
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  background-color: #1e1e1e;
+  color: #ffffff;
+  overflow: hidden;
+  width: 200px;
+  height: 230px; 
+  cursor: pointer; 
+
+}
+
+.videoThumbnail,
+.videoPreview {
+  width: 100%;
+  height: 200px; /* Same height for both image and video */
+  border-radius: 8px;
+  object-fit: cover; /* Ensures the image and video cover the area without stretching */
+}
+
+.videoPreview {
+  position: absolute;
+  top: 16px; /* Adjust to match padding */
+  left: 16px; /* Adjust to match padding */
+}
+
+.videoTitle {
+  font-size: 1.2em;
+  margin-top: 8px;
+  color: #ffffff;
+  position: absolute;
+  bottom: 1px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
