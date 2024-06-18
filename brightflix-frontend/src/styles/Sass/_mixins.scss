@@ -3,5 +3,31 @@
     -webkit-box-shadow: $shadow;
        -moz-box-shadow: $shadow;
             box-shadow: $shadow;
-  }
-  
+}
+
+@mixin button($color) {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: $color;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: darken($color, 10%);
+    }
+}
+
+@mixin input-styles {
+    width: calc(100% - 20px);
+    padding: $inputPadding;
+    font-size: $inputFontSize;
+    border-radius: $inputBorderRadius;
+    outline: none;
+    color: $letterColorWhite;
+    background-color: $inputBackgroundColor;
+    border: 1px solid $inputBorderColor;
+}
