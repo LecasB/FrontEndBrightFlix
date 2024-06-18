@@ -1,30 +1,37 @@
-import React, { useState } from "react";
-import styles from "../scss/VideoCard.module.scss"; // Correct path to the SCSS module
+import React, { useState, useRef, useEffect } from "react";
+import styles from "../scss/VideoCard.module.scss";
 
-function VideoCard({ thumbnail, videoUrl, title, previewVideoUrl }) {
+function VideoCard({ thumbnail, title, previewVideoUrl }) {
   const [isHovered, setIsHovered] = useState(false);
+  const videoRef = useRef(null);
 
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
+  useEffect(() => {
+    const videoElement = videoRef.current;
 
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
+    if (videoElement) {
+      videoElement.volume = 0.3; // Baixa o volume do video para 30%
+    }
 
-  const handleClick = () => {
-    window.open(videoUrl, "_blank", "noopener,noreferrer");
-  };
+    if (isHovered && videoElement) {
+      videoElement.muted = false; // Desmuta o video
+      videoElement.play().catch((error) => {
+        console.log("Video playback failed:", error);
+      });
+    } else if (videoElement) {
+      videoElement.muted = true; // Muta o video
+      videoElement.pause();
+    }
+  }, [isHovered]);
 
   return (
     <div
       className={styles.videoCard}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onClick={handleClick}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       {isHovered ? (
         <video
+          ref={videoRef}
           src={previewVideoUrl}
           className={styles.videoPreview}
           loop

@@ -1,6 +1,6 @@
 import React from "react";
 import Homepage from "./pages/homepage";
-import "./scss/_base.scss"; // Ensure the path is correct
+import "./scss/_base.scss"; 
 
 function App() {
   return (

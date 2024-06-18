@@ -1,4 +1,17 @@
-body{
-background-color: black;
+@import "variables";
+@import "mixins";
 
+body {
+  background-color: $backgroundColorForm;
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+h2 {
+  margin: 0;
+}
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
 }
