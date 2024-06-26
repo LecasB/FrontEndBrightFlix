@@ -41,7 +41,6 @@ function VideoCard({ thumbnail, title, previewVideoUrl }) {
       ) : (
         <img src={thumbnail} alt={title} className={styles.videoThumbnail} />
       )}
-      <h3 className={styles.videoTitle}>{title}</h3>
     </div>
   );
 }
