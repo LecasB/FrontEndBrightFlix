@@ -1,0 +1,32 @@
+@import "variables"; 
+@import "mixins"; 
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding-top: 25px;
+
+  &:hover .icon {
+    color: $inputBorderColor ;
+  }
+}
+
+.navbar {
+  display: flex;
+  flex-direction: column; 
+  position: fixed; 
+  top: 0;
+  left: 0;
+  height: 100%; 
+  padding: 10px;
+  background-color: $transparent; 
+  margin: 0;
+  justify-content: center;
+}
+
+.icon {
+  color: $letterColorWhite;
+  font-size: 30px; 
+  padding: 20px;
+}
