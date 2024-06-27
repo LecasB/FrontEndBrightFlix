@@ -3,12 +3,8 @@ import { FaClock, FaInfoCircle, FaCalendarAlt, FaUser, FaArrowDown, FaArrowUp, F
 import StarRating from './starRating';
 
 function VideoCard({ video }) {
-  const [showDetails, setShowDetails] = useState(false);
   const [showTrailer, setShowTrailer] = useState(false);
 
-  const toggleDetails = () => {
-    setShowDetails(!showDetails);
-  };
 
   const toggleTrailer = () => {
     setShowTrailer(!showTrailer);
@@ -27,12 +23,8 @@ function VideoCard({ video }) {
           <div className='clock'>
             <FaClock /> {video.duration} min
           </div>
-          <div className='arrowDown' onClick={toggleDetails}>
-            {showDetails ? <FaArrowUp /> : <FaArrowDown />}
-          </div>
         </div>
       </div>
-      {showDetails && (
         <div className='info details'>
           <div className='fields description'>
             <span>{video.description}</span>
@@ -56,7 +48,6 @@ function VideoCard({ video }) {
             </span>
           </div>
         </div>
-      )}
       {showTrailer && (
         <div className='trailerPopup'>
           <div className='trailerContent'>
