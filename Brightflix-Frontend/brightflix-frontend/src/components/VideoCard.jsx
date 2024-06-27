@@ -1,25 +1,17 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "../scss/VideoCard.module.scss";
 
 function VideoCard({ thumbnail, title, previewVideoUrl }) {
   const [isHovered, setIsHovered] = useState(false);
-  const videoRef = useRef(null);
+  const iframeRef = useRef(null);
 
   useEffect(() => {
-    const videoElement = videoRef.current;
-
-    if (videoElement) {
-      videoElement.volume = 0.3; // Baixa o volume do video para 30%
-    }
-
-    if (isHovered && videoElement) {
-      videoElement.muted = false; // Desmuta o video
-      videoElement.play().catch((error) => {
-        console.log("Video playback failed:", error);
-      });
-    } else if (videoElement) {
-      videoElement.muted = true; // Muta o video
-      videoElement.pause();
+    if (iframeRef.current) {
+      const iframe = iframeRef.current.contentWindow;
+      iframe.postMessage(
+        '{"event":"command","func":"setVolume","args":[1931312]}',
+        "*"
+      );
     }
   }, [isHovered]);
 
@@ -30,13 +22,15 @@ function VideoCard({ thumbnail, title, previewVideoUrl }) {
       onMouseLeave={() => setIsHovered(false)}
     >
       {isHovered ? (
-        <video
-          ref={videoRef}
-          src={previewVideoUrl}
+        <iframe
+          ref={iframeRef}
+          width="100%"
+          height="100%"
+          src={`${previewVideoUrl}?autoplay=1&mute=0&controls=0`}
+          title={title}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
           className={styles.videoPreview}
-          loop
-          muted
-          autoPlay
         />
       ) : (
         <img src={thumbnail} alt={title} className={styles.videoThumbnail} />

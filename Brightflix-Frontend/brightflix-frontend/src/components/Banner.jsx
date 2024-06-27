@@ -1,16 +1,11 @@
 import React from "react";
-import BannerImg from "../Banner.png";
 import "../scss/Banner.scss";
-import Logo from "../logo.png";
-import "../scss/_variables.scss";
 
-function Banner() {
-  const rating = 79;
-
+function Banner({ title, rating, description, thumbnail, fadeOut }) {
   const getRatingColorClass = (rating) => {
-    if (rating >= 80) {
+    if (rating >= 8) {
       return "good";
-    } else if (rating >= 50) {
+    } else if (rating >= 5) {
       return "average";
     } else {
       return "bad";
@@ -20,22 +15,16 @@ function Banner() {
   const ratingClass = getRatingColorClass(rating);
 
   return (
-    <div className="banner">
+    <div className={`banner ${fadeOut ? "fade-out" : ""}`}>
       <div className="Bannerimg">
-        <img src={BannerImg} alt="Banner" />
+        <img src={thumbnail} alt={title} />
       </div>
       <div className="textBanner">
-        <img src={Logo} alt="Logo" className="Logo" />
-        <h1>Matrix</h1>
+        <h1>{title}</h1>
         <div className="Sub-tags">
-          <p className={`Rating ${ratingClass}`}>{rating}% Match</p>
-          <p class="Sesons">2018 2h 30min</p>
+          <p className={`Rating ${ratingClass}`}>Rating: {rating}/10</p>
         </div>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga dolor
-          magnam optio id! Delectus ea iure quia impedit ab, distinctio voluptas
-          consequatur ad! Ea assumenda hic quas natus voluptatum in?
-        </p>
+        <p>{description}</p>
       </div>
     </div>
   );
