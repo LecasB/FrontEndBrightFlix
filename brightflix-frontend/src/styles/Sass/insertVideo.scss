@@ -106,6 +106,9 @@
     border-radius: 5px;
     box-shadow: 5px 5px 10px $boxShadowColor;
     flex-wrap: wrap;
+    &:hover .details {
+      opacity: 1;
+    }
 
     .thumbnail {
       width: 100%;
@@ -140,6 +143,7 @@
       width: calc(100% - 20px);
       height: calc(100% - 20px);
       margin: 0;
+      opacity: 0;
       background-color: rgba(24, 24, 24, 0.904);
       position: absolute;
     }

@@ -120,6 +120,9 @@ h2 {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.925);
   flex-wrap: wrap;
 }
+.videoInsert .videoInserted:hover .details {
+  opacity: 1;
+}
 .videoInsert .videoInserted .thumbnail {
   width: 100%;
   display: flex;
@@ -157,6 +160,7 @@ h2 {
   width: calc(100% - 20px);
   height: calc(100% - 20px);
   margin: 0;
+  opacity: 0;
   background-color: rgba(24, 24, 24, 0.904);
   position: absolute;
 }
