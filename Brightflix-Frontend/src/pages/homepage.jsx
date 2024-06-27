@@ -36,10 +36,10 @@ function Homepage() {
           setFadeOut(false);
           return newIndex;
         });
-      }, 1000); // Tempo para a animaçao do fade out
+      }, 100); // Tempo para a animaçao do fade out
     }, 30000); // Tempo de espera para mudar o Banner
 
-    return () => clearInterval(interval); 
+    return () => clearInterval(interval);
   }, [videos]);
 
   return (
