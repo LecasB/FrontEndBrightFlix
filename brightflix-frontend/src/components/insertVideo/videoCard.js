@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { FaClock, FaStar, FaInfoCircle, FaCalendarAlt, FaUser, FaArrowDown, FaArrowUp, FaHandPointer } from 'react-icons/fa';
+import { FaClock, FaInfoCircle, FaCalendarAlt, FaUser, FaArrowDown, FaArrowUp, FaHandPointer } from 'react-icons/fa';
+import StarRating from './starRating';
 
 function VideoCard({ video }) {
   const [showDetails, setShowDetails] = useState(false);
@@ -37,7 +38,7 @@ function VideoCard({ video }) {
             <span>{video.description}</span>
           </div>
           <div className='fields'>
-            <FaStar /> Rating: {video.rating} stars
+            <StarRating rating={video.rating} />
           </div>
           <div className='fields'>
             <FaInfoCircle /> Category: {video.category}
@@ -49,12 +50,11 @@ function VideoCard({ video }) {
             <FaUser /> Creator: {video.creator}
           </div>
           <div className='fields'>
-          <FaHandPointer />
-          <span className='trailer' onClick={toggleTrailer}>
-            Trailer 
-          </span>
-        </div>
-
+            <FaHandPointer />
+            <span className='trailer' onClick={toggleTrailer}>
+              Trailer 
+            </span>
+          </div>
         </div>
       )}
       {showTrailer && (

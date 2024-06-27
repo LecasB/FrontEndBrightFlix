@@ -81,7 +81,7 @@
       font-weight: 800;
       letter-spacing: 0.2rem;
       font-size: 2rem;
-      color: darken($brandColor, 10%);
+      color: darken(white, 10%);
       @include letter-title;
     }
   }
