@@ -121,6 +121,7 @@ h2 {
   flex-wrap: wrap;
 }
 .videoInsert .videoInserted:hover .details {
+  cursor: default;
   transition: 0.3s ease;
   opacity: 1;
 }
@@ -158,6 +159,7 @@ h2 {
   justify-content: space-between;
 }
 .videoInsert .videoInserted .details {
+  transition: 0.3s ease;
   width: calc(100% - 20px);
   height: calc(100% - 20px);
   margin: 0;
