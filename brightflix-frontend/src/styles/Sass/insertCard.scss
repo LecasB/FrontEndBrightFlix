@@ -1,0 +1,59 @@
+@import 'mixins';
+@import 'variables';
+
+.card {
+    @include fixed-card;
+    .inputContainer{
+        margin-bottom: 10px;
+        input{
+            margin: 0;
+            @include input;
+        }
+    }
+    h1{
+        text-align: center;
+        @include letter-title;
+    }
+    &.showw {
+        transform: translateX(0%);
+    }
+
+    .corbag {
+        @include flex-row-space-around;
+    }
+
+    .content {
+        text-align: center;
+    }
+
+    .price {
+        font-weight: 700;
+        margin: 0;
+    }
+
+    .bagtamanho {
+        color: $letterFormColor;
+        margin: 0;
+        font-weight: 700;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        color: $brandColor;
+    }
+    #card-content{
+        margin: 30px 0px;
+    }
+
+
+    @media screen and (max-width: 675px) {
+        width: 80%;
+    }
+}
+
+#card-content {
+    max-height: 80%;
+}

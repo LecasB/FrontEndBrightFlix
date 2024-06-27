@@ -1,4 +1,3 @@
-// _mixins.scss
 @mixin box-shadow($shadow...) {
     -webkit-box-shadow: $shadow;
        -moz-box-shadow: $shadow;
@@ -21,13 +20,77 @@
     }
 }
 
-@mixin input-styles {
+@mixin letter-title{
+    font-weight: 1000;
+    text-transform: uppercase;
+    color: $brandColor;
+    margin: 0;
+}
+
+@mixin input{
     width: calc(100% - 20px);
-    padding: $inputPadding;
-    font-size: $inputFontSize;
-    border-radius: $inputBorderRadius;
+    padding: 25px 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
     outline: none;
     color: $letterColorWhite;
     background-color: $inputBackgroundColor;
     border: 1px solid $inputBorderColor;
+
+    &:focus,
+    &:not(:placeholder-shown) {
+        & + label {
+            top: 5px;
+            left: 5px;
+            font-size: 14px;
+            color: $letterColorWhite;
+            background-color: $transparent;
+            transform: translateY(10%) scale(0.9) translateX(-5%);
+        }
+    }
+
+    &:not(:placeholder-shown) + label {
+      top: 5px;
+      left: 5px;
+      font-size: 14px;
+      color: $letterColorWhite;
+      background-color: $transparent;
+      transform: translateY(10%) scale(0.9) translateX(-5%);
+    }
+}
+@mixin fields{
+    margin: 5px 0px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    svg {
+        color: $brandColor;
+        margin-right: 5px;
+    }
+}
+@mixin fixed-card {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 400px;
+    background-color: #242323;
+    @include box-shadow(0 0 10px rgba(0, 0, 0, 0.1));
+    z-index: 999999;
+    overflow-y: auto;
+    padding: 20px;
+    transition: transform 0.3s ease;
+    transform: translateX(100%);
+}
+
+@mixin flex-row-space-around {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+@mixin flex-row-center {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }

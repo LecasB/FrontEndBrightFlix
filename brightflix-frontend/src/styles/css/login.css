@@ -60,18 +60,18 @@ h2 {
 .inputContainer input:focus + label, .inputContainer input:not(:placeholder-shown) + label {
   top: 5px;
   left: 5px;
-  font-size: 12px;
+  font-size: 14px;
   color: white;
   background-color: transparent;
-  transform: translateY(-30%) scale(0.8) translateX(-15%);
+  transform: translateY(10%) scale(0.9) translateX(-5%);
 }
 .inputContainer input:not(:placeholder-shown) + label {
   top: 5px;
   left: 5px;
-  font-size: 12px;
+  font-size: 14px;
   color: white;
   background-color: transparent;
-  transform: translateY(-30%) scale(0.8) translateX(-15%);
+  transform: translateY(10%) scale(0.9) translateX(-5%);
 }
 .inputContainer label {
   position: absolute;
@@ -84,7 +84,7 @@ h2 {
   color: #aaa;
 }
 
-.btn-primary {
+.btnPrimary {
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.925);
   -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.925);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.925);
@@ -100,11 +100,11 @@ h2 {
   font-weight: 700;
   min-height: 2.5rem;
 }
-.btn-primary:hover {
+.btnPrimary:hover {
   background-color: #aa1400;
 }
 
-.btn-secondary {
+.btnSecondary {
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.925);
   -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.925);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.925);
@@ -120,7 +120,7 @@ h2 {
   font-weight: 700;
   min-height: 2.5rem;
 }
-.btn-secondary:hover {
+.btnSecondary:hover {
   background-color: rgba(230, 230, 230, 0.1568627451);
 }
 

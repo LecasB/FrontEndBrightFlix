@@ -1,0 +1,94 @@
+.card {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 400px;
+  background-color: #242323;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 999999;
+  overflow-y: auto;
+  padding: 20px;
+  transition: transform 0.3s ease;
+  transform: translateX(100%);
+}
+.card .inputContainer {
+  margin-bottom: 10px;
+}
+.card .inputContainer input {
+  margin: 0;
+  width: calc(100% - 20px);
+  padding: 25px 10px 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  outline: none;
+  color: white;
+  background-color: rgba(17, 17, 17, 0.82);
+  border: 1px solid #474747;
+}
+.card .inputContainer input:focus + label, .card .inputContainer input:not(:placeholder-shown) + label {
+  top: 5px;
+  left: 5px;
+  font-size: 14px;
+  color: white;
+  background-color: transparent;
+  transform: translateY(10%) scale(0.9) translateX(-5%);
+}
+.card .inputContainer input:not(:placeholder-shown) + label {
+  top: 5px;
+  left: 5px;
+  font-size: 14px;
+  color: white;
+  background-color: transparent;
+  transform: translateY(10%) scale(0.9) translateX(-5%);
+}
+.card h1 {
+  text-align: center;
+  font-weight: 1000;
+  text-transform: uppercase;
+  color: #dd1a00;
+  margin: 0;
+}
+.card.showw {
+  transform: translateX(0%);
+}
+.card .corbag {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+.card .content {
+  text-align: center;
+}
+.card .price {
+  font-weight: 700;
+  margin: 0;
+}
+.card .bagtamanho {
+  color: #aaa;
+  margin: 0;
+  font-weight: 700;
+}
+.card .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  color: #dd1a00;
+}
+.card #card-content {
+  margin: 30px 0px;
+}
+@media screen and (max-width: 675px) {
+  .card {
+    width: 80%;
+  }
+}
+
+#card-content {
+  max-height: 80%;
+}
+
+/*# sourceMappingURL=insertCard.css.map */

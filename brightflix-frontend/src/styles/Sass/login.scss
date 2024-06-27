@@ -46,35 +46,7 @@
     margin-bottom: 20px;
 
     input {
-        width: calc(100% - 20px);
-        padding: 25px 10px 15px;
-        font-size: 16px;
-        border-radius: 5px;
-        outline: none;
-        color: $letterColorWhite;
-        background-color: $inputBackgroundColor;
-        border: 1px solid $inputBorderColor;
-
-        &:focus,
-        &:not(:placeholder-shown) {
-            & + label {
-                top: 5px;
-                left: 5px;
-                font-size: 12px;
-                color: $letterColorWhite;
-                background-color: $transparent;
-                transform: translateY(-30%) scale(0.8) translateX(-15%);
-            }
-        }
-
-        &:not(:placeholder-shown) + label {
-            top: 5px;
-            left: 5px;
-            font-size: 12px;
-            color: $letterColorWhite;
-            background-color: $transparent;
-            transform: translateY(-30%) scale(0.8) translateX(-15%);
-        }
+      @include input;
     }
 
     label {
@@ -89,14 +61,14 @@
     }
 }
 
-.btn-primary {
+.btnPrimary {
     @include box-shadow(0 1px 2px $boxShadowColor);
     @include button($brandColor);
     font-weight: 700;
     min-height: 2.5rem;
 }
 
-.btn-secondary {
+.btnSecondary {
     @include box-shadow(0 1px 2px $boxShadowColor);
     @include button(#ffffff28);
     font-weight: 700;

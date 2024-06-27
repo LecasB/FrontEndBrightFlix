@@ -50,9 +50,9 @@ function Login() {
           />
           <label>Password</label>
         </div>
-        <button className='btn-primary' type="submit">Sign In</button>
+        <button className='btnPrimary' type="submit">Sign In</button>
         <p>OR</p>
-        <button className='btn-secondary' type="submit">Register</button>
+        <button className='btnSecondary' type="submit">Register</button>
         <p className='forgotPassword'>Forgot password?</p>
       </form>
     </div>
