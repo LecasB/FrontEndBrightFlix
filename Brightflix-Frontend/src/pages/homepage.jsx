@@ -21,7 +21,7 @@ function Homepage() {
       })
       .then((data) => {
         setVideos(data.data);
-        setBannerData(data.data[0]); // Set the first video as banner data initially
+        setBannerData(data.data[0]); // Vai buscar o id do filme a API
       })
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
@@ -36,10 +36,10 @@ function Homepage() {
           setFadeOut(false);
           return newIndex;
         });
-      }, 1000); // Match the duration of fade-out animation
-    }, 30000);
+      }, 1000); // Tempo para a animaçao do fade out
+    }, 30000); // Tempo de espera para mudar o Banner
 
-    return () => clearInterval(interval); // Clear interval on component unmount
+    return () => clearInterval(interval); 
   }, [videos]);
 
   return (
