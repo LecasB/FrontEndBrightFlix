@@ -121,6 +121,7 @@ h2 {
   flex-wrap: wrap;
 }
 .videoInsert .videoInserted:hover .details {
+  transition: 0.3s ease;
   opacity: 1;
 }
 .videoInsert .videoInserted .thumbnail {

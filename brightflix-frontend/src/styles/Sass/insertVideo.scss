@@ -107,6 +107,7 @@
     box-shadow: 5px 5px 10px $boxShadowColor;
     flex-wrap: wrap;
     &:hover .details {
+      transition: 0.3s ease;
       opacity: 1;
     }
 
