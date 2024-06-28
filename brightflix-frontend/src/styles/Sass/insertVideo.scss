@@ -245,6 +245,15 @@
 }
 
 @media (max-width: 768px) {
+  .insertPage{
+    header {
+      z-index: 9999;
+      width: 90%;
+    img{
+      width: 250px;
+    }
+  }
+  }
   h2 {
     display: none;
   }

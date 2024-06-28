@@ -270,6 +270,13 @@ h2 {
 }
 
 @media (max-width: 768px) {
+  .insertPage header {
+    z-index: 9999;
+    width: 90%;
+  }
+  .insertPage header img {
+    width: 250px;
+  }
   h2 {
     display: none;
   }

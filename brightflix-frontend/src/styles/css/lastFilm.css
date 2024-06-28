@@ -95,4 +95,10 @@
   mask-composite: intersect;
 }
 
+@media (max-width: 768px) {
+  .lastMovie {
+    grid-template-columns: repeat(1, minmax(200px, 1fr));
+  }
+}
+
 /*# sourceMappingURL=lastFilm.css.map */
