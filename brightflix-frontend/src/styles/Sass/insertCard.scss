@@ -10,7 +10,11 @@
             @include input;
         }
     }
+    .insertButton{
+        @include button($brandColor);
+    }
     h1{
+        color: $brandColor;
         text-align: center;
         @include letter-title;
     }

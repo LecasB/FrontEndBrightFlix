@@ -9,7 +9,7 @@ function LastFilm() {
   const [showTrailer, setShowTrailer] = useState(false);
 
   useEffect(() => {
-    axios.get('https://brightflixapii.vercel.app/api/v1/videos')
+    axios.get('https://brightflixapii.vercel.app/api/v1/videos?sort=created')
       .then(response => {
         console.log('API response:', response.data);
         if (Array.isArray(response.data.data)) {
@@ -40,11 +40,11 @@ function LastFilm() {
             <StarRating rating={lastVideo.rating} />
             <div className='buttons'>
               <button className='button red' onClick={toggleTrailer}>Trailer</button>
-              <button className='button'>Trailer</button>
+              <button className='button'>Watch</button>
             </div>
           </div>
           <div className='banner'>
-            <img src={lastVideo.thumb} alt={`${lastVideo.title} thumbnail`} />
+            <img src={lastVideo.banner} alt={`${lastVideo.title} thumbnail`} />
           </div>
           {showTrailer && (
             <div className='trailerPopup'>

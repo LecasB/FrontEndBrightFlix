@@ -33,15 +33,19 @@
             margin: 0;
         }
         svg{
+            font-size: 1.2rem;
             color: $brandColor;
+            filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.5));
         }
         .buttons{
             display: flex;
             margin: 30px 0px;
             gap: 10px;
-            .button{
-               @include buttons;
-            }
+            .button {
+                @include buttons;
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.479);
+              }
+              
             .red{
                 @include buttons($brandColor);
             }

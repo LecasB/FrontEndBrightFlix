@@ -30,7 +30,9 @@
   margin: 0;
 }
 .lastMovie .content svg {
+  font-size: 1.2rem;
   color: #dd1a00;
+  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.5));
 }
 .lastMovie .content .buttons {
   display: flex;
@@ -49,6 +51,7 @@
   border-radius: 50px;
   transition: all 0.3s;
   border: 1px solid #303030;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.479);
 }
 .lastMovie .content .buttons .button:hover {
   color: white;
@@ -86,8 +89,8 @@
   height: 100%;
   object-fit: cover;
   border-radius: 20px;
-  -webkit-mask-image: linear-gradient(to right, transparent, #474747 20%, #474747 80%, transparent), linear-gradient(to bottom, transparent, #474747 20%, #474747 80%, transparent);
-  mask-image: linear-gradient(to right, transparent, #474747 20%, #474747 80%, transparent), linear-gradient(to bottom, transparent, #474747 20%, #474747 80%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #161616 20%, #161616 80%, transparent), linear-gradient(to bottom, transparent, #161616 20%, #161616 80%, transparent);
+  mask-image: linear-gradient(to right, transparent, #161616 20%, #161616 80%, transparent), linear-gradient(to bottom, transparent, #161616 20%, #161616 80%, transparent);
   -webkit-mask-composite: destination-in;
   mask-composite: intersect;
 }
