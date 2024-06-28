@@ -99,6 +99,9 @@
   .lastMovie {
     grid-template-columns: repeat(1, minmax(200px, 1fr));
   }
+  .lastMovie .content h2 {
+    font-size: 1.8rem;
+  }
 }
 
 /*# sourceMappingURL=lastFilm.css.map */

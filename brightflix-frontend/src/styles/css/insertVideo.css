@@ -277,9 +277,6 @@ h2 {
   .insertPage header img {
     width: 250px;
   }
-  .insertPage .lastMovie .banner {
-    max-height: 450px;
-  }
   .videoInsert {
     max-width: none;
   }
