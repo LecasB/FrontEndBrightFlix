@@ -277,6 +277,9 @@ h2 {
   .insertPage header img {
     width: 250px;
   }
+  .insertPage .lastMovie .banner {
+    height: 450px;
+  }
   h2 {
     display: none;
   }
