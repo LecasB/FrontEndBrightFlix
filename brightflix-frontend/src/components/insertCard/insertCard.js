@@ -5,6 +5,7 @@ import '../../styles/css/insertCard.css';
 
 function InsertCard() {
   const [title, setTitle] = useState('');
+  const [bannerLink, setBanner] = useState('');
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
   const [rating, setRating] = useState('');
@@ -22,6 +23,7 @@ function InsertCard() {
     const creationDate = new Date().toISOString();
     const newMovie = {
       title,
+      banner: bannerLink,
       description,
       category,
       rating,
@@ -57,6 +59,16 @@ function InsertCard() {
               placeholder=''
             />
             <label>Title</label>
+          </div>
+          <div className="inputContainer">
+            <input
+              type="text"
+              required
+              value={bannerLink}
+              onChange={(e) => setBanner(e.target.value)}
+              placeholder=''
+            />
+            <label>Banner</label>
           </div>
           <div className="inputContainer">
             <input
