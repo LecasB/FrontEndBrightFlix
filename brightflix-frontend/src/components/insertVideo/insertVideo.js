@@ -47,7 +47,6 @@ function InsertVideo() {
           />
           <img src={search} alt="Search icon" />
         </div>
-        <div className='title'><h2>Add Movies</h2></div>
         <div className='addIcon' onClick={insertCard}>+</div>
       </div>
       <div className='videoCards'>

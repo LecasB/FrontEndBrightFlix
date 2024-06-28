@@ -1,0 +1,95 @@
+.lastMovie {
+  position: relative;
+  margin: 100px auto 0 auto;
+  color: white;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, minmax(50%, 1fr));
+  gap: 20px;
+  align-items: center;
+}
+.lastMovie .content {
+  z-index: 999;
+  margin: 0 auto;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.lastMovie .content h2 {
+  font-size: 4rem;
+  padding: 15px 0px;
+}
+.lastMovie .content .category {
+  color: #dd1a00;
+}
+.lastMovie .content p {
+  font-weight: 600;
+  padding: 15px 0px;
+  width: 100%;
+  margin: 0;
+}
+.lastMovie .content svg {
+  color: #dd1a00;
+}
+.lastMovie .content .buttons {
+  display: flex;
+  margin: 30px 0px;
+  gap: 10px;
+}
+.lastMovie .content .buttons .button {
+  cursor: pointer;
+  background-color: #303030;
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+  border: none;
+  width: 150px;
+  height: 50px;
+  border-radius: 50px;
+  transition: all 0.3s;
+  border: 1px solid #303030;
+}
+.lastMovie .content .buttons .button:hover {
+  color: white;
+  border: 1px solid #303030;
+  transition: all 0.3s;
+  background-color: #171717;
+}
+.lastMovie .content .buttons .red {
+  cursor: pointer;
+  background-color: #dd1a00;
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+  border: none;
+  width: 150px;
+  height: 50px;
+  border-radius: 50px;
+  transition: all 0.3s;
+  border: 1px solid #dd1a00;
+}
+.lastMovie .content .buttons .red:hover {
+  color: white;
+  border: 1px solid #dd1a00;
+  transition: all 0.3s;
+  background-color: #aa1400;
+}
+.lastMovie .banner {
+  position: absolute;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+}
+.lastMovie .banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  -webkit-mask-image: linear-gradient(to right, transparent, #474747 20%, #474747 80%, transparent), linear-gradient(to bottom, transparent, #474747 20%, #474747 80%, transparent);
+  mask-image: linear-gradient(to right, transparent, #474747 20%, #474747 80%, transparent), linear-gradient(to bottom, transparent, #474747 20%, #474747 80%, transparent);
+  -webkit-mask-composite: destination-in;
+  mask-composite: intersect;
+}
+
+/*# sourceMappingURL=lastFilm.css.map */

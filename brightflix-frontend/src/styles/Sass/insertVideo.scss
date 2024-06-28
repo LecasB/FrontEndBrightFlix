@@ -3,16 +3,16 @@
 @import "base";
 
 .insertPage {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("https://static.vecteezy.com/system/resources/previews/022/175/541/non_2x/cinema-with-seat-and-spotlight-theater-hall-with-interior-auditorium-for-movie-theatre-empty-stage-for-film-red-chair-with-scene-for-presentation-background-for-advertising-vector.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100vh;
+  background-color: $backgroundInsertMovies;
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 100vh;
+  header{
+    width: 96%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 .searchBar {
@@ -27,8 +27,6 @@
 
 .videoCards {
   margin: 10px 0px;
-  height: 70vh;
-  overflow: auto;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 10px;
@@ -52,7 +50,7 @@
 
 .videoInsert {
   display: flex;
-  width: 80%;
+  width: 95%;
   display: flex;
   margin: 100px auto;
   flex-direction: column;
@@ -81,7 +79,7 @@
       font-weight: 800;
       letter-spacing: 0.2rem;
       font-size: 2rem;
-      color: darken(white, 10%);
+      color: $brandColor;
       @include letter-title;
     }
   }
@@ -197,49 +195,50 @@
       }
     }
 
-    .trailerPopup {
-      position: fixed;
-      top: 0;
-      left: 0;
+
+  }
+}
+.trailerPopup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+
+  .trailerContent {
+    width: 90%;
+    height: 90%;
+    position: relative;
+    background: $backgroundColorForm;
+    padding: 20px;
+    border-radius: 8px;
+
+    iframe {
+      border: none;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
+    }
 
-      .trailerContent {
-        width: 90%;
-        height: 90%;
-        position: relative;
-        background: $backgroundColorForm;
-        padding: 20px;
-        border-radius: 8px;
+    .closeButton {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: $brandColor;
+      color: #fff;
+      border: none;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      border-radius: 50%;
+      font-size: 16px;
 
-        iframe {
-          border: none;
-          width: 100%;
-          height: 100%;
-        }
-
-        .closeButton {
-          position: absolute;
-          top: 10px;
-          right: 10px;
-          background: $brandColor;
-          color: #fff;
-          border: none;
-          width: 30px;
-          height: 30px;
-          cursor: pointer;
-          border-radius: 50%;
-          font-size: 16px;
-
-          &:hover {
-            background: $brandColor;
-          }
-        }
+      &:hover {
+        background: $brandColor;
       }
     }
   }

@@ -3,13 +3,15 @@ import InsertVideo from '../components/insertVideo/insertVideo';
 import LoginHeader from '../components/loginHeader/loginHeader';
 import InsertCard from '../components/insertCard/insertCard';
 import '../styles/css/insertVideo.css';
+import LastFilm from '../components/insertVideo/recentFilm';
 
 
 
 const InsertPage = () => {
   return (
     <div className='insertPage'>
-     <LoginHeader />   
+     <LoginHeader />
+     <LastFilm />   
      <InsertVideo />
      <InsertCard />
     </div>

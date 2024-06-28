@@ -1,0 +1,71 @@
+@import 'variables';
+@import 'mixins';
+
+.lastMovie {
+    position: relative;
+    margin: 100px auto 0 auto;
+    color: $letterColorWhite;
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(50%, 1fr));
+    gap: 20px;
+    align-items: center;
+
+    .content {
+        z-index: 999;
+        margin: 0 auto;
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+        h2 {
+            font-size: 4rem;
+            padding: 15px 0px;
+        }
+        .category{
+            color: $brandColor;
+        }
+        p {
+            font-weight: 600;
+            padding: 15px 0px;
+            width: 100%;
+            margin: 0;
+        }
+        svg{
+            color: $brandColor;
+        }
+        .buttons{
+            display: flex;
+            margin: 30px 0px;
+            gap: 10px;
+            .button{
+               @include buttons;
+            }
+            .red{
+                @include buttons($brandColor);
+            }
+    }
+    }
+
+    .banner {
+        position: absolute;
+        width: 100%;
+        height: 500px;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            -webkit-mask-image: linear-gradient(to right, transparent, $backgroundInsertMovies 20%, $backgroundInsertMovies 80%, transparent),
+                               linear-gradient(to bottom, transparent, $backgroundInsertMovies 20%, $backgroundInsertMovies 80%, transparent);
+            mask-image: linear-gradient(to right, transparent, $backgroundInsertMovies 20%, $backgroundInsertMovies 80%, transparent),
+                        linear-gradient(to bottom, transparent, $backgroundInsertMovies 20%, $backgroundInsertMovies 80%, transparent);
+            -webkit-mask-composite: destination-in;
+            mask-composite: intersect;  
+        }
+
+    }
+}

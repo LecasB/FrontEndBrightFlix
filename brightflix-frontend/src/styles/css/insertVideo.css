@@ -2,21 +2,34 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
 }
+body::-webkit-scrollbar {
+  width: 14px;
+}
+body::-webkit-scrollbar-track {
+  background: rgba(17, 17, 17, 0.82);
+  border-radius: 10px;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #dd1a00;
+  border-radius: 10px;
+  border: 3px solid rgba(17, 17, 17, 0.82);
+}
 
 h2 {
   margin: 0;
 }
 
 .insertPage {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://static.vecteezy.com/system/resources/previews/022/175/541/non_2x/cinema-with-seat-and-spotlight-theater-hall-with-interior-auditorium-for-movie-theatre-empty-stage-for-film-red-chair-with-scene-for-presentation-background-for-advertising-vector.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100vh;
+  background-color: #161616;
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 100vh;
+}
+.insertPage header {
+  width: 96%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .searchBar {
@@ -31,8 +44,6 @@ h2 {
 
 .videoCards {
   margin: 10px 0px;
-  height: 70vh;
-  overflow: auto;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 10px;
@@ -53,7 +64,7 @@ h2 {
 
 .videoInsert {
   display: flex;
-  width: 80%;
+  width: 95%;
   display: flex;
   margin: 100px auto;
   flex-direction: column;
@@ -83,7 +94,7 @@ h2 {
   font-weight: 800;
   letter-spacing: 0.2rem;
   font-size: 2rem;
-  color: #e6e6e6;
+  color: #dd1a00;
   font-weight: 1000;
   text-transform: uppercase;
   margin: 0;
@@ -215,7 +226,8 @@ h2 {
 .videoInsert .videoInserted .description span {
   text-align: left;
 }
-.videoInsert .videoInserted .trailerPopup {
+
+.trailerPopup {
   position: fixed;
   top: 0;
   left: 0;
@@ -227,7 +239,7 @@ h2 {
   align-items: center;
   z-index: 1000;
 }
-.videoInsert .videoInserted .trailerPopup .trailerContent {
+.trailerPopup .trailerContent {
   width: 90%;
   height: 90%;
   position: relative;
@@ -235,12 +247,12 @@ h2 {
   padding: 20px;
   border-radius: 8px;
 }
-.videoInsert .videoInserted .trailerPopup .trailerContent iframe {
+.trailerPopup .trailerContent iframe {
   border: none;
   width: 100%;
   height: 100%;
 }
-.videoInsert .videoInserted .trailerPopup .trailerContent .closeButton {
+.trailerPopup .trailerContent .closeButton {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -253,7 +265,7 @@ h2 {
   border-radius: 50%;
   font-size: 16px;
 }
-.videoInsert .videoInserted .trailerPopup .trailerContent .closeButton:hover {
+.trailerPopup .trailerContent .closeButton:hover {
   background: #dd1a00;
 }
 
