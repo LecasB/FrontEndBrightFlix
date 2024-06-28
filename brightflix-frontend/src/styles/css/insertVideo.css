@@ -150,7 +150,6 @@ h2 {
 }
 .videoInsert .videoInserted .thumbnail img,
 .videoInsert .videoInserted .thumbnail iframe {
-  display: block !important;
   object-fit: cover;
   width: 100%;
   height: 300px;
