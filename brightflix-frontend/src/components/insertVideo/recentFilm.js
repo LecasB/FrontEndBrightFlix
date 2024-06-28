@@ -9,7 +9,7 @@ function LastFilm() {
   const [showTrailer, setShowTrailer] = useState(false);
 
   useEffect(() => {
-    let isMounted = true; // flag to track if component is mounted
+    let isMounted = true;
 
     axios.get('https://brightflixapii.vercel.app/api/v1/videos')
       .then(response => {
@@ -29,9 +29,9 @@ function LastFilm() {
       });
 
     return () => {
-      isMounted = false; // clean up flag when component unmounts
+      isMounted = false;
     };
-  }, []); // empty dependency array ensures this useEffect runs only once
+  }, []);
 
   const toggleTrailer = () => {
     setShowTrailer(!showTrailer);
@@ -40,7 +40,7 @@ function LastFilm() {
   if (!randomVideo) {
     return <p>No videos available</p>;
   }
-
+  
   return (
       <div className='lastMovie'>
         <div className='content'>

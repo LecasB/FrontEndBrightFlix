@@ -3,9 +3,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../../styles/css/login.css';
 
-
 function Login() {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
@@ -13,12 +12,12 @@ function Login() {
   const handleLogin = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('', {
-        username,
+      const response = await axios.post('https://brightflixapii.vercel.app/api/v1/login', {
+        email,
         password
       });
       localStorage.setItem('token', response.data.token);
-      navigate('/videos');
+      navigate('/insert');
     } catch (err) {
       setError('Login falhou. Verifique as suas credenciais.');
     }
@@ -32,8 +31,8 @@ function Login() {
           <input
             className='loginInput' 
             type="text" 
-            value={username} 
-            onChange={(e) => setUsername(e.target.value)} 
+            value={email} 
+            onChange={(e) => setEmail(e.target.value)} 
             required 
             placeholder=''
           />
@@ -50,9 +49,10 @@ function Login() {
           />
           <label>Password</label>
         </div>
+        {error && <p className='error'>{error}</p>}
         <button className='btnPrimary' type="submit">Sign In</button>
         <p>OR</p>
-        <button className='btnSecondary' type="submit">Register</button>
+        <button className='btnSecondary' type="button" onClick={() => navigate('/register')}>Register</button>
         <p className='forgotPassword'>Forgot password?</p>
       </form>
     </div>
