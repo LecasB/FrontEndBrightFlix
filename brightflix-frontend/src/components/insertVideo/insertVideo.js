@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import search from "../../img/search.png";
 import VideoCard from './videoCard';
+import {FaFilter } from 'react-icons/fa';
+
 
 function insertCard() {
   var cart = document.getElementById("popupCard");
@@ -47,7 +49,10 @@ function InsertVideo() {
           />
           <img src={search} alt="Search icon" />
         </div>
+        <div className='insertButtons'>
+        <div className='addIcon' ><FaFilter /></div>
         <div className='addIcon' onClick={insertCard}>+</div>
+        </div>
       </div>
       <div className='videoCards'>
         {filteredVideos.length > 0 ? (

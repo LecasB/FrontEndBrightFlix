@@ -54,7 +54,11 @@
   display: flex;
   margin: 100px auto;
   flex-direction: column;
-
+  .insertButtons{
+    gap: 10px;
+    display: flex;
+    flex-direction: row;
+  }
   .addVideo {
     z-index: 99;
     border: none;

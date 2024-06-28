@@ -69,6 +69,11 @@ h2 {
   margin: 100px auto;
   flex-direction: column;
 }
+.videoInsert .insertButtons {
+  gap: 10px;
+  display: flex;
+  flex-direction: row;
+}
 .videoInsert .addVideo {
   z-index: 99;
   border: none;
