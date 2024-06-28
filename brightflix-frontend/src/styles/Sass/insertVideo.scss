@@ -255,18 +255,18 @@
     
   }
   .lastMovie .banner{
-    height: 350px;
+    max-height: 450px;
   }
   }
-  h2 {
-    display: none;
-  }
+ 
   .videoInsert {
     max-width: none;
     .videoInserted {
       flex-direction: column;
       align-items: flex-start;
-
+      h2 {
+        display: none;
+      }
       .info {
         margin-left: 0;
 
