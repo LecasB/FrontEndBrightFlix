@@ -13,7 +13,7 @@ function VideoCard({ video }) {
     <div className='videoInserted'>
       <div className='thumbnail'>
         {video.thumb ? (
-          <img src={video.thumb} alt={`Thumbnail of ${video.title}`} />
+          <img src="https://th.bing.com/th/id/R.ca2392772abe4f0dc92eca96def53b40?rik=PLeo7SCasa15SQ&riu=http%3a%2f%2fimg.over-blog-kiwi.com%2f1%2f36%2f64%2f60%2f20150405%2fob_73f610_saving-private-ryan-poster-copy.jpg&ehk=eGvtbtNIP2NkmNfuPLedKKG46m0neKGIPs1r%2b74kU3o%3d&risl=&pid=ImgRaw&r=0" alt={`Thumbnail of ${video.title}`} />
         ) : (
           <div>No thumbnail available</div>
         )}
