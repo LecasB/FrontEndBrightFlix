@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { FaClock, FaInfoCircle, FaCalendarAlt, FaUser, FaArrowDown, FaArrowUp, FaHandPointer } from 'react-icons/fa';
+import { FaClock, FaInfoCircle, FaCalendarAlt, FaUser, FaHandPointer } from 'react-icons/fa';
 import StarRating from './starRating';
 
 function VideoCard({ video }) {
   const [showTrailer, setShowTrailer] = useState(false);
-
 
   const toggleTrailer = () => {
     setShowTrailer(!showTrailer);
@@ -13,8 +12,12 @@ function VideoCard({ video }) {
   return (
     <div className='videoInserted'>
       <div className='thumbnail'>
-        <img src={video.thumb} alt={`Thumbnail of ${video.title}`} />
-      </div> 
+        {video.thumb ? (
+          <img src={video.thumb} alt={`Thumbnail of ${video.title}`} />
+        ) : (
+          <div>No thumbnail available</div>
+        )}
+      </div>
       <div className='info'>
         <div className='field'>
           {video.title}
@@ -25,29 +28,29 @@ function VideoCard({ video }) {
           </div>
         </div>
       </div>
-        <div className='info details'>
-          <div className='fields description'>
-            <span>{video.description}</span>
-          </div>
-          <div className='fields'>
-            <StarRating rating={video.rating} />
-          </div>
-          <div className='fields'>
-            <FaInfoCircle /> Category: {video.category}
-          </div>
-          <div className='fields'>
-            <FaCalendarAlt /> {video.created}
-          </div>
-          <div className='fields'>
-            <FaUser /> Creator: {video.creator}
-          </div>
-          <div className='fields'>
-            <FaHandPointer />
-            <span className='trailer' onClick={toggleTrailer}>
-              Trailer 
-            </span>
-          </div>
+      <div className='info details'>
+        <div className='fields description'>
+          <span>{video.description}</span>
         </div>
+        <div className='fields'>
+          <StarRating rating={video.rating} />
+        </div>
+        <div className='fields'>
+          <FaInfoCircle /> Category: {video.category}
+        </div>
+        <div className='fields'>
+          <FaCalendarAlt /> {video.created}
+        </div>
+        <div className='fields'>
+          <FaUser /> Creator: {video.creator}
+        </div>
+        <div className='fields'>
+          <FaHandPointer />
+          <span className='trailer' onClick={toggleTrailer}>
+            Trailer 
+          </span>
+        </div>
+      </div>
       {showTrailer && (
         <div className='trailerPopup'>
           <div className='trailerContent'>

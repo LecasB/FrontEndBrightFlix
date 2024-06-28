@@ -40,7 +40,6 @@ function LastFilm() {
   if (!randomVideo) {
     return <p>No videos available</p>;
   }
-  
   return (
       <div className='lastMovie'>
         <div className='content'>
