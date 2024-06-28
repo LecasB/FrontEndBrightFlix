@@ -277,6 +277,9 @@ h2 {
   .insertPage header img {
     width: 250px;
   }
+  .insertPage header .banner {
+    max-height: 480px;
+  }
   .videoInsert {
     max-width: none;
   }
