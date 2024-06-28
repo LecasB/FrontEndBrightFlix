@@ -13,7 +13,7 @@ function VideoCard({ video }) {
   return (
     <div className='videoInserted'>
       <div className='thumbnail'>
-        <img src={video.thumb} alt={`Thumbnail of ${video.title}`} />
+        <img src={video.banner} alt={`Thumbnail of ${video.title}`} />
       </div> 
       <div className='info'>
         <div className='field'>
