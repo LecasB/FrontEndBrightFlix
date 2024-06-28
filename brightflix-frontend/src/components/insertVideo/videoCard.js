@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { FaClock, FaInfoCircle, FaCalendarAlt, FaUser, FaHandPointer } from 'react-icons/fa';
+import { FaClock, FaInfoCircle, FaCalendarAlt, FaUser, FaHandPointer, FaCheckCircle, FaRegCircle } from 'react-icons/fa';
 import StarRating from './starRating';
 
-function VideoCard({ video }) {
+function VideoCard({ video, isDeleteMode, isSelected, toggleSelectVideo }) {
   const [showTrailer, setShowTrailer] = useState(false);
 
   const toggleTrailer = () => {
@@ -10,7 +10,14 @@ function VideoCard({ video }) {
   };
 
   return (
-    <div className='videoInserted'>
+    <div className={`videoInserted ${isDeleteMode ? 'deleteMode' : ''} ${isSelected ? 'selected' : ''}`}>
+      {isDeleteMode && (
+        <div className={`selectOverlay ${isSelected ? 'selected' : ''}`} onClick={toggleSelectVideo}>
+          <div className='selectCircle'>
+            {isSelected ? <FaCheckCircle size={50} /> : <FaRegCircle size={50} />}
+          </div>
+        </div>
+      )}
       <div className='thumbnail'>
         {video.thumb ? (
           <img src={video.thumb} alt={`Thumbnail of ${video.title}`} />

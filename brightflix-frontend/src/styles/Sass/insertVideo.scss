@@ -109,12 +109,37 @@
     border-radius: 5px;
     box-shadow: 5px 5px 10px $boxShadowColor;
     flex-wrap: wrap;
-    &:hover .details {
+  
+    &:not(.deleteMode):hover .details {
       cursor: default;
       transition: 0.3s ease;
       opacity: 1;
     }
+  
+    .selectOverlay {
+      display: flex;
+      z-index: 999;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      align-items: center;
+      background-color: rgba(24, 24, 24, 0.692); 
+      &.selected {
+        background-color: $transparent;
+      }
+  
+      .selectCircle {
+        pointer-events: none;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 50px; 
+        text-align: center;
+        width: 100%;
+        color: $brandColor;
+      }
+    }
 
+  
     .thumbnail {
       width: 100%;
       display: flex;
@@ -168,20 +193,6 @@
       }
     }
 
-    .arrowDown {
-      z-index: 999;
-      cursor: pointer;
-      display: flex;
-      padding: 5px;
-      border-radius: 30px;
-      background-color: rgb(36, 36, 36);
-      &:hover {
-        background-color: aliceblue;
-      }
-      svg {
-        margin-right: 0;
-      }
-    }
     .trailer{
       cursor: pointer;
       color: $brandColor;

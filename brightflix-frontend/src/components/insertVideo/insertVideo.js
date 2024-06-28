@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import search from "../../img/search.png";
 import VideoCard from './videoCard';
-import {FaFilter } from 'react-icons/fa';
-
+import { FaFilter, FaTrash } from 'react-icons/fa';
 
 function insertCard() {
   var cart = document.getElementById("popupCard");
@@ -13,6 +12,8 @@ function insertCard() {
 function InsertVideo() {
   const [videos, setVideos] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [isDeleteMode, setIsDeleteMode] = useState(false);
+  const [selectedVideos, setSelectedVideos] = useState([]);
 
   useEffect(() => {
     axios.get('https://brightflixapii.vercel.app/api/v1/videos')
@@ -37,6 +38,31 @@ function InsertVideo() {
     video.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  const deleteVideoFromAPI = async (id) => {
+    try {
+      await axios.delete(`https://brightflixapii.vercel.app/api/v1/videos/delete/${id}`);
+    } catch (error) {
+      console.error('Error deleting video:', error);
+    }
+  };
+
+  const toggleDeleteMode = async () => {
+    setIsDeleteMode(!isDeleteMode);
+    if (isDeleteMode) {
+      await Promise.all(selectedVideos.map(deleteVideoFromAPI));
+      setVideos(videos.filter(video => !selectedVideos.includes(video.id)));
+      setSelectedVideos([]);
+    }
+  };
+
+  const toggleSelectVideo = (videoId) => {
+    setSelectedVideos((prevSelected) =>
+      prevSelected.includes(videoId)
+        ? prevSelected.filter(id => id !== videoId)
+        : [...prevSelected, videoId]
+    );
+  };
+
   return (
     <div className='videoInsert'>
       <div className='addVideo'>
@@ -50,14 +76,21 @@ function InsertVideo() {
           <img src={search} alt="Search icon" />
         </div>
         <div className='insertButtons'>
-        <div className='addIcon' ><FaFilter /></div>
-        <div className='addIcon' onClick={insertCard}>+</div>
+          <div className='addIcon'><FaFilter /></div>
+          <div className='addIcon' onClick={toggleDeleteMode}><FaTrash /></div>
+          <div className='addIcon' onClick={insertCard}>+</div>
         </div>
       </div>
       <div className='videoCards'>
         {filteredVideos.length > 0 ? (
-          filteredVideos.map((video, index) => (
-            <VideoCard key={index} video={video} />
+          filteredVideos.map((video) => (
+            <VideoCard
+              key={video.id}
+              video={video}
+              isDeleteMode={isDeleteMode}
+              isSelected={selectedVideos.includes(video.id)}
+              toggleSelectVideo={() => toggleSelectVideo(video.id)}
+            />
           ))
         ) : (
           <p>No videos found</p>

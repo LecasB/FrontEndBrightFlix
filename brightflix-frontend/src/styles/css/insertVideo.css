@@ -137,10 +137,31 @@ h2 {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.925);
   flex-wrap: wrap;
 }
-.videoInsert .videoInserted:hover .details {
+.videoInsert .videoInserted:not(.deleteMode):hover .details {
   cursor: default;
   transition: 0.3s ease;
   opacity: 1;
+}
+.videoInsert .videoInserted .selectOverlay {
+  display: flex;
+  z-index: 999;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  background-color: rgba(24, 24, 24, 0.692);
+}
+.videoInsert .videoInserted .selectOverlay.selected {
+  background-color: transparent;
+}
+.videoInsert .videoInserted .selectOverlay .selectCircle {
+  pointer-events: none;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 50px;
+  text-align: center;
+  width: 100%;
+  color: #dd1a00;
 }
 .videoInsert .videoInserted .thumbnail {
   width: 100%;
@@ -202,20 +223,6 @@ h2 {
 .videoInsert .videoInserted .field strong {
   color: #dd1a00;
   margin-right: 5px;
-}
-.videoInsert .videoInserted .arrowDown {
-  z-index: 999;
-  cursor: pointer;
-  display: flex;
-  padding: 5px;
-  border-radius: 30px;
-  background-color: rgb(36, 36, 36);
-}
-.videoInsert .videoInserted .arrowDown:hover {
-  background-color: aliceblue;
-}
-.videoInsert .videoInserted .arrowDown svg {
-  margin-right: 0;
 }
 .videoInsert .videoInserted .trailer {
   cursor: pointer;
