@@ -13,6 +13,57 @@
     left: 50%;
     transform: translateX(-50%);
   }
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    h2{
+      font-size: 1.5rem;
+      font-weight: 1000;
+    }
+  }
+  
+  .modal-content {
+    color: white;
+    background: #1f1f1f;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    max-width: 80%;
+    font-weight: 600;
+    ul{
+      padding: 5px 5px 5px 20px;
+      margin-top: 2px;
+      list-style:inside;
+      font-weight: 1000;
+      color: $brandColor;
+
+    }
+  }
+  
+  .modal-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  button{
+    border: none;
+    @include buttons;
+    width: 140px;
+    height: 50px;
+  }
+  .confirm{
+    @include buttons($brandColor);
+    width: 140px;
+    height: 50px;
+  }  
 }
 
 .searchBar {

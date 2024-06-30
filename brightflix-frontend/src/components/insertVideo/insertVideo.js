@@ -3,6 +3,7 @@ import axios from 'axios';
 import search from "../../img/search.png";
 import VideoCard from './videoCard';
 import { FaFilter, FaTrash } from 'react-icons/fa';
+import ConfirmationModal from './remove';
 
 function insertCard() {
   var cart = document.getElementById("popupCard");
@@ -14,6 +15,7 @@ function InsertVideo() {
   const [searchTerm, setSearchTerm] = useState('');
   const [isDeleteMode, setIsDeleteMode] = useState(false);
   const [selectedVideos, setSelectedVideos] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     axios.get('https://brightflixapii.vercel.app/api/v1/videos')
@@ -46,12 +48,17 @@ function InsertVideo() {
     }
   };
 
-  const toggleDeleteMode = async () => {
+  const confirmDelete = async () => {
+    await Promise.all(selectedVideos.map(deleteVideoFromAPI));
+    setVideos(videos.filter(video => !selectedVideos.includes(video.id)));
+    setSelectedVideos([]);
+    setShowModal(false);
+  };
+
+  const toggleDeleteMode = () => {
     setIsDeleteMode(!isDeleteMode);
     if (isDeleteMode) {
-      await Promise.all(selectedVideos.map(deleteVideoFromAPI));
-      setVideos(videos.filter(video => !selectedVideos.includes(video.id)));
-      setSelectedVideos([]);
+      setShowModal(true);
     }
   };
 
@@ -62,6 +69,8 @@ function InsertVideo() {
         : [...prevSelected, videoId]
     );
   };
+
+  const selectedVideoObjects = videos.filter(video => selectedVideos.includes(video.id));
 
   return (
     <div className='videoInsert'>
@@ -96,6 +105,12 @@ function InsertVideo() {
           <p>No videos found</p>
         )}
       </div>
+      <ConfirmationModal
+        show={showModal}
+        onClose={() => setShowModal(false)}
+        onConfirm={confirmDelete}
+        selectedVideos={selectedVideoObjects}
+      />
     </div>
   );
 }

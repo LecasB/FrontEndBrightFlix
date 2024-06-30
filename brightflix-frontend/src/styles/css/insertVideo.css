@@ -31,6 +31,86 @@ h2 {
   left: 50%;
   transform: translateX(-50%);
 }
+.insertPage .modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.insertPage .modal-overlay h2 {
+  font-size: 1.5rem;
+  font-weight: 1000;
+}
+.insertPage .modal-content {
+  color: white;
+  background: #1f1f1f;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  max-width: 80%;
+  font-weight: 600;
+}
+.insertPage .modal-content ul {
+  padding: 5px 5px 5px 20px;
+  margin-top: 2px;
+  list-style: inside;
+  font-weight: 1000;
+  color: #dd1a00;
+}
+.insertPage .modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.insertPage button {
+  border: none;
+  cursor: pointer;
+  background-color: #303030;
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+  border: none;
+  width: 150px;
+  height: 50px;
+  border-radius: 50px;
+  transition: all 0.3s;
+  border: 1px solid #303030;
+  width: 140px;
+  height: 50px;
+}
+.insertPage button:hover {
+  color: white;
+  border: 1px solid #303030;
+  transition: all 0.3s;
+  background-color: #171717;
+}
+.insertPage .confirm {
+  cursor: pointer;
+  background-color: #dd1a00;
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+  border: none;
+  width: 150px;
+  height: 50px;
+  border-radius: 50px;
+  transition: all 0.3s;
+  border: 1px solid #dd1a00;
+  width: 140px;
+  height: 50px;
+}
+.insertPage .confirm:hover {
+  color: white;
+  border: 1px solid #dd1a00;
+  transition: all 0.3s;
+  background-color: #aa1400;
+}
 
 .searchBar {
   border: 1px solid rgba(0, 0, 0, 0.8431372549);
