@@ -63,6 +63,7 @@ h2 {
   color: #dd1a00;
 }
 .insertPage .modal-actions {
+  gap: 15px;
   grid-column: span 2;
   display: flex;
   justify-content: space-between;

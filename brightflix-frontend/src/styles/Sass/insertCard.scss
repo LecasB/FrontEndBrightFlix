@@ -5,16 +5,18 @@ form {
     margin-top: 30px;
     max-width: 600px;
     display: grid;
-    grid-template-columns: repeat(2, 1fr); 
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px; 
+    .modal-actions{
     button{
-        width: 48% !important;
+        width: 48% ;
     }
     #insertButton{
         @include button($brandColor);
         border-radius: 50px;
     }
   }
+}
 
 .card {
     @include fixed-card;

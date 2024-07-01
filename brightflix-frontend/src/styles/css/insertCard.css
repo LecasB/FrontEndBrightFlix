@@ -5,10 +5,10 @@ form {
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
-form button {
-  width: 48% !important;
+form .modal-actions button {
+  width: 48%;
 }
-form #insertButton {
+form .modal-actions #insertButton {
   width: 100%;
   padding: 10px;
   font-size: 16px;
@@ -20,7 +20,7 @@ form #insertButton {
   transition: background-color 0.3s ease;
   border-radius: 50px;
 }
-form #insertButton:hover {
+form .modal-actions #insertButton:hover {
   background-color: #aa1400;
 }
 

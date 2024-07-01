@@ -12,7 +12,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-}
 
 .loginForm {
     background-color: $backgroundColorForm;
@@ -21,6 +20,9 @@
     padding: 48px 68px;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    form{
+        display: block;
+    }
 
     h2 {
         margin: 30px 0;
@@ -41,6 +43,20 @@
     }
 }
 
+.btnPrimary {
+    @include box-shadow(0 1px 2px $boxShadowColor);
+    @include button($brandColor);
+    font-weight: 700;
+    min-height: 2.5rem;
+}
+
+.btnSecondary {
+    @include box-shadow(0 1px 2px $boxShadowColor);
+    @include button(#ffffff28);
+    font-weight: 700;
+    min-height: 2.5rem;
+}
+}
 .inputContainer {
     position: relative;
     margin-bottom: 20px;
@@ -59,18 +75,4 @@
         pointer-events: none;
         color: $letterFormColor;
     }
-}
-
-.btnPrimary {
-    @include box-shadow(0 1px 2px $boxShadowColor);
-    @include button($brandColor);
-    font-weight: 700;
-    min-height: 2.5rem;
-}
-
-.btnSecondary {
-    @include box-shadow(0 1px 2px $boxShadowColor);
-    @include button(#ffffff28);
-    font-weight: 700;
-    min-height: 2.5rem;
 }

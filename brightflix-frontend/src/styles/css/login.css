@@ -2,6 +2,18 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
 }
+body::-webkit-scrollbar {
+  width: 14px;
+}
+body::-webkit-scrollbar-track {
+  background: rgba(17, 17, 17, 0.82);
+  border-radius: 10px;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #dd1a00;
+  border-radius: 10px;
+  border: 3px solid rgba(17, 17, 17, 0.82);
+}
 
 h2 {
   margin: 0;
@@ -18,8 +30,7 @@ h2 {
   flex-direction: column;
   align-items: center;
 }
-
-.loginForm {
+.backgroundImg .loginForm {
   background-color: rgba(0, 0, 0, 0.8431372549);
   min-width: 400px;
   margin: auto;
@@ -27,20 +38,61 @@ h2 {
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
-.loginForm h2 {
+.backgroundImg .loginForm form {
+  display: block;
+}
+.backgroundImg .loginForm h2 {
   margin: 30px 0;
   color: white;
   font-size: 2rem;
 }
-.loginForm p {
+.backgroundImg .loginForm p {
   color: #aaa;
   text-align: center;
   margin: 20px 0;
 }
-.loginForm .forgotPassword {
+.backgroundImg .loginForm .forgotPassword {
   color: #aaa;
   text-decoration: underline;
   cursor: pointer;
+}
+.backgroundImg .btnPrimary {
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.925);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.925);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.925);
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #dd1a00;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: 700;
+  min-height: 2.5rem;
+}
+.backgroundImg .btnPrimary:hover {
+  background-color: #aa1400;
+}
+.backgroundImg .btnSecondary {
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.925);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.925);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.925);
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.1568627451);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: 700;
+  min-height: 2.5rem;
+}
+.backgroundImg .btnSecondary:hover {
+  background-color: rgba(230, 230, 230, 0.1568627451);
 }
 
 .inputContainer {
@@ -82,46 +134,6 @@ h2 {
   transition: 0.2s ease all;
   pointer-events: none;
   color: #aaa;
-}
-
-.btnPrimary {
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.925);
-  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.925);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.925);
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  background-color: #dd1a00;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-weight: 700;
-  min-height: 2.5rem;
-}
-.btnPrimary:hover {
-  background-color: #aa1400;
-}
-
-.btnSecondary {
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.925);
-  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.925);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.925);
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  background-color: rgba(255, 255, 255, 0.1568627451);
-  border: none;
-  border-radius: 5px;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-weight: 700;
-  min-height: 2.5rem;
-}
-.btnSecondary:hover {
-  background-color: rgba(230, 230, 230, 0.1568627451);
 }
 
 /*# sourceMappingURL=login.css.map */
