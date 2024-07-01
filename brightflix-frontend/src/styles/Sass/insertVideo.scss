@@ -35,7 +35,6 @@
     background: #1f1f1f;
     padding: 20px;
     border-radius: 8px;
-    width: 300px;
     max-width: 80%;
     font-weight: 600;
     ul{
@@ -49,6 +48,7 @@
   }
   
   .modal-actions {
+    grid-column: span 2;
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
@@ -190,7 +190,15 @@
       }
     }
 
-  
+    .edit{
+      margin: 0 !important;
+      display: flex;
+      justify-content: right;
+      text-align: right;
+      svg{
+        cursor: pointer;
+      }
+    }
     .thumbnail {
       width: 100%;
       display: flex;

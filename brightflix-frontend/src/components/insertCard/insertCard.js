@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import logo from '../../img/logo.png';
 import '../../styles/css/insertCard.css';
+import VideoForm from '../insertVideo/insertVideoForms';
 
 function InsertCard() {
+  const baseMovieUrl = "https://vidsrc.net/embed/";
   const [title, setTitle] = useState('');
   const [bannerLink, setBanner] = useState('');
-  const [movielink, setMovie] = useState('');
+  const [movieId, setMovieId] = useState(''); // Apenas o ID do filme
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
   const [rating, setRating] = useState('');
@@ -20,12 +21,13 @@ function InsertCard() {
     card.classList.remove('showw');
   }
 
-  function handleInsert() {
+  function handleInsert(e) {
+    e.preventDefault();
     const creationDate = new Date().toISOString();
     const newMovie = {
       title,
       banner: bannerLink,
-      movie: movielink,
+      movie: `${baseMovieUrl}${movieId}`,
       description,
       category,
       rating,
@@ -52,107 +54,20 @@ function InsertCard() {
         <span className="close-btn" onClick={closeCard}>X</span>
         <h1>Insert movies</h1>
         <div id="card-content">
-          <div className="inputContainer">
-            <input
-              type="text"
-              required
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              placeholder=''
-            />
-            <label>Title</label>
-          </div>
-          <div className="inputContainer">
-            <input
-              type="text"
-              required
-              value={movielink}
-              onChange={(e) => setMovie(e.target.value)}
-              placeholder=''
-            />
-            <label>Movie</label>
-          </div>
-          <div className="inputContainer">
-            <input
-              type="text"
-              required
-              value={bannerLink}
-              onChange={(e) => setBanner(e.target.value)}
-              placeholder=''
-            />
-            <label>Banner</label>
-          </div>
-          <div className="inputContainer">
-            <input
-              type="text"
-              required
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              placeholder=''
-            />
-            <label>Description</label>
-          </div>
-          <div className="inputContainer">
-            <input
-              type="text"
-              required
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
-              placeholder=''
-            />
-            <label>Category</label>
-          </div>
-          <div className="inputContainer">
-            <input
-              type="text"
-              required
-              value={rating}
-              onChange={(e) => setRating(e.target.value)}
-              placeholder=''
-            />
-            <label>Rating</label>
-          </div>
-          <div className="inputContainer">
-            <input
-              type="text"
-              required
-              value={videoLink}
-              onChange={(e) => setVideoLink(e.target.value)}
-              placeholder=''
-            />
-            <label>Video Link</label>
-          </div>
-          <div className="inputContainer">
-            <input
-              type="text"
-              required
-              value={thumbnail}
-              onChange={(e) => setThumbnail(e.target.value)}
-              placeholder=''
-            />
-            <label>Thumbnail</label>
-          </div>
-          <div className="inputContainer">
-            <input
-              type="text"
-              required
-              value={duration}
-              onChange={(e) => setDuration(e.target.value)}
-              placeholder=''
-            />
-            <label>Duration</label>
-          </div>
-          <div className="inputContainer">
-            <input
-              type="text"
-              required
-              value={creator}
-              onChange={(e) => setCreator(e.target.value)}
-              placeholder=''
-            />
-            <label>Creator</label>
-          </div>
-          <button className='insertButton' onClick={handleInsert}>Insert</button>
+          <VideoForm 
+            title={title} setTitle={setTitle}
+            bannerLink={bannerLink} setBanner={setBanner}
+            movieLink={movieId} setMovie={setMovieId}
+            description={description} setDescription={setDescription}
+            category={category} setCategory={setCategory}
+            rating={rating} setRating={setRating}
+            videoLink={videoLink} setVideoLink={setVideoLink}
+            thumbnail={thumbnail} setThumbnail={setThumbnail}
+            duration={duration} setDuration={setDuration}
+            creator={creator} setCreator={setCreator}
+            handleSubmit={handleInsert}
+            submitLabel="Insert"
+          />
         </div>
       </div>
     </div>

@@ -4,6 +4,7 @@ import search from "../../img/search.png";
 import VideoCard from './videoCard';
 import { FaFilter, FaTrash } from 'react-icons/fa';
 import ConfirmationModal from './remove';
+import UpdateModal from './updateFilm';
 
 function insertCard() {
   var cart = document.getElementById("popupCard");
@@ -16,6 +17,8 @@ function InsertVideo() {
   const [isDeleteMode, setIsDeleteMode] = useState(false);
   const [selectedVideos, setSelectedVideos] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  const [showUpdateModal, setShowUpdateModal] = useState(false);
+  const [selectedVideo, setSelectedVideo] = useState(null);
 
   useEffect(() => {
     axios.get('https://brightflixapii.vercel.app/api/v1/videos')
@@ -62,6 +65,23 @@ function InsertVideo() {
     }
   };
 
+  const toggleUpdateMode = (video) => {
+    setSelectedVideo(video);
+    setShowUpdateModal(true);
+  };
+
+  const updateVideoInAPI = async (id, updatedData) => {
+    try {
+      await axios.put(`https://brightflixapii.vercel.app/api/v1/videos/update/${id}`, updatedData);
+      setVideos(videos.map(video => 
+        video.id === id ? { ...video, ...updatedData } : video
+      ));
+      setShowUpdateModal(false);
+    } catch (error) {
+      console.error('Error updating video:', error);
+    }
+  };
+
   const toggleSelectVideo = (videoId) => {
     setSelectedVideos((prevSelected) =>
       prevSelected.includes(videoId)
@@ -99,6 +119,7 @@ function InsertVideo() {
               isDeleteMode={isDeleteMode}
               isSelected={selectedVideos.includes(video.id)}
               toggleSelectVideo={() => toggleSelectVideo(video.id)}
+              onEdit={() => toggleUpdateMode(video)} // Passar função onEdit para o VideoCard
             />
           ))
         ) : (
@@ -111,6 +132,14 @@ function InsertVideo() {
         onConfirm={confirmDelete}
         selectedVideos={selectedVideoObjects}
       />
+      {selectedVideo && (
+        <UpdateModal
+          show={showUpdateModal}
+          onClose={() => setShowUpdateModal(false)}
+          onUpdate={updateVideoInAPI}
+          selectedVideo={selectedVideo}
+        />
+      )}
     </div>
   );
 }

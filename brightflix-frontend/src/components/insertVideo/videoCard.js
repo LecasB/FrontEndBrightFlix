@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
-import { FaClock, FaInfoCircle, FaCalendarAlt, FaUser, FaHandPointer, FaCheckCircle, FaRegCircle } from 'react-icons/fa';
+import { FaClock, FaInfoCircle, FaCalendarAlt, FaUser, FaHandPointer, FaCheckCircle, FaRegCircle, FaEdit } from 'react-icons/fa';
+import { BiSolidMoviePlay } from "react-icons/bi";
 import StarRating from './starRating';
 
-function VideoCard({ video, isDeleteMode, isSelected, toggleSelectVideo }) {
+function VideoCard({ video, isDeleteMode, isSelected, toggleSelectVideo, onEdit }) {
   const [showTrailer, setShowTrailer] = useState(false);
 
   const toggleTrailer = () => {
     setShowTrailer(!showTrailer);
   };
-  const watchMovie = () => {
+
+  const watchFullMovie = () => {
     if (video && video.movie) {
       window.open(video.movie, '_blank');
     } else {
@@ -43,6 +45,9 @@ function VideoCard({ video, isDeleteMode, isSelected, toggleSelectVideo }) {
         </div>
       </div>
       <div className='info details'>
+        <div className='fields edit' onClick={() => onEdit(video)}>
+          <FaEdit />
+        </div>
         <div className='fields description'>
           <span>{video.description}</span>
         </div>
@@ -65,8 +70,8 @@ function VideoCard({ video, isDeleteMode, isSelected, toggleSelectVideo }) {
           </span>
         </div>
         <div className='fields'>
-          <FaHandPointer />
-          <span className='trailer' onClick={watchMovie}>
+          <BiSolidMoviePlay />
+          <span className='trailer' onClick={watchFullMovie}>
             Movie 
           </span>
         </div>
@@ -80,7 +85,7 @@ function VideoCard({ video, isDeleteMode, isSelected, toggleSelectVideo }) {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
               allowFullScreen>
             </iframe>
-            <button className='closeButton' onClick={watchMovie}>X</button>
+            <button className='closeButton' onClick={toggleTrailer}>X</button>
           </div>
         </div>
       )}

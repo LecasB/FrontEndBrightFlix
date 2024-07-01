@@ -52,7 +52,6 @@ h2 {
   background: #1f1f1f;
   padding: 20px;
   border-radius: 8px;
-  width: 300px;
   max-width: 80%;
   font-weight: 600;
 }
@@ -64,6 +63,7 @@ h2 {
   color: #dd1a00;
 }
 .insertPage .modal-actions {
+  grid-column: span 2;
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
@@ -242,6 +242,15 @@ h2 {
   text-align: center;
   width: 100%;
   color: #dd1a00;
+}
+.videoInsert .videoInserted .edit {
+  margin: 0 !important;
+  display: flex;
+  justify-content: right;
+  text-align: right;
+}
+.videoInsert .videoInserted .edit svg {
+  cursor: pointer;
 }
 .videoInsert .videoInserted .thumbnail {
   width: 100%;

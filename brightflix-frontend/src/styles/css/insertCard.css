@@ -1,3 +1,29 @@
+form {
+  margin-top: 30px;
+  max-width: 600px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+form button {
+  width: 48% !important;
+}
+form #insertButton {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #dd1a00;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 50px;
+}
+form #insertButton:hover {
+  background-color: #aa1400;
+}
+
 .card {
   position: fixed;
   top: 0;
@@ -13,6 +39,12 @@
   padding: 20px;
   transition: transform 0.3s ease;
   transform: translateX(100%);
+}
+.card .cancel {
+  display: none;
+}
+.card form {
+  display: block;
 }
 .card .inputContainer {
   margin-bottom: 10px;
