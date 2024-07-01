@@ -14,6 +14,9 @@ const InsertPage = () => {
      <LastFilm />   
      <InsertVideo />
      <InsertCard />
+     <head>
+     <meta name="referrer" content="origin" />
+     </head>
     </div>
   );
 };
