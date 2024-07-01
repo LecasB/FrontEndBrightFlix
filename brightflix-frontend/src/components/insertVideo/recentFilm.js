@@ -37,6 +37,14 @@ function LastFilm() {
     setShowTrailer(!showTrailer);
   };
 
+  const watchMovie = () => {
+    if (randomVideo && randomVideo.movie) {
+      window.open(randomVideo.movie, '_blank');
+    } else {
+      console.error('No movie link available');
+    }
+  };
+
   if (!randomVideo) {
     return <p>No videos available</p>;
   }
@@ -49,7 +57,7 @@ function LastFilm() {
           <StarRating rating={randomVideo.rating} />
           <div className='buttons'>
             <button className='button red' onClick={toggleTrailer}>Trailer</button>
-            <button className='button'>Watch</button>
+            <button className='button' onClick={watchMovie}>Watch</button>
           </div>
         </div>
         <div className='banner'>

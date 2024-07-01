@@ -8,6 +8,13 @@ function VideoCard({ video, isDeleteMode, isSelected, toggleSelectVideo }) {
   const toggleTrailer = () => {
     setShowTrailer(!showTrailer);
   };
+  const watchMovie = () => {
+    if (video && video.movie) {
+      window.open(video.movie, '_blank');
+    } else {
+      console.error('No movie link available');
+    }
+  };
 
   return (
     <div className={`videoInserted ${isDeleteMode ? 'deleteMode' : ''} ${isSelected ? 'selected' : ''}`}>
@@ -57,6 +64,12 @@ function VideoCard({ video, isDeleteMode, isSelected, toggleSelectVideo }) {
             Trailer 
           </span>
         </div>
+        <div className='fields'>
+          <FaHandPointer />
+          <span className='trailer' onClick={watchMovie}>
+            Movie 
+          </span>
+        </div>
       </div>
       {showTrailer && (
         <div className='trailerPopup'>
@@ -67,7 +80,7 @@ function VideoCard({ video, isDeleteMode, isSelected, toggleSelectVideo }) {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
               allowFullScreen>
             </iframe>
-            <button className='closeButton' onClick={toggleTrailer}>X</button>
+            <button className='closeButton' onClick={watchMovie}>X</button>
           </div>
         </div>
       )}
