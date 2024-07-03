@@ -44,7 +44,7 @@ function VideoCard({ video, isDeleteMode, isSelected, toggleSelectVideo, onEdit 
           </div>
         </div>
       </div>
-      <div className='info details'>
+      <div className='info details' >
         <div className='fields edit' onClick={() => onEdit(video)}>
           <FaEdit />
         </div>

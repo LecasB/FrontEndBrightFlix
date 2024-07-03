@@ -11,9 +11,19 @@ function SeriesCard({ series, isDeleteMode, isSelected, toggleSelectSeries, onEd
   };
 
   return (
-    <div className={`videoInserted ${isDeleteMode ? 'deleteMode' : ''} ${isSelected ? 'selected' : ''}`} onClick={onClick}>
+    <div 
+      className={`videoInserted ${isDeleteMode ? 'deleteMode' : ''} ${isSelected ? 'selected' : ''}`} 
+      onClick={() => {
+        if (!isDeleteMode) {
+          onClick();
+        }
+      }}>
+    
       {isDeleteMode && (
-        <div className={`selectOverlay ${isSelected ? 'selected' : ''}`} onClick={toggleSelectSeries}>
+        <div className={`selectOverlay ${isSelected ? 'selected' : ''}`} onClick={(e) => {
+          e.stopPropagation();
+          toggleSelectSeries();
+        }}>
           <div className='selectCircle'>
             {isSelected ? <FaCheckCircle size={50} /> : <FaRegCircle size={50} />}
           </div>
@@ -31,7 +41,7 @@ function SeriesCard({ series, isDeleteMode, isSelected, toggleSelectSeries, onEd
           {series.title}
         </div>
       </div>
-      <div className='info details'>
+      <div className='info details' style={{ cursor: 'pointer' }}>
         <div className='fields edit' onClick={(e) => { e.stopPropagation(); onEdit(series); }}>
           <FaEdit />
         </div>

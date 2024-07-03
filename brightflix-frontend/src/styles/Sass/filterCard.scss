@@ -3,6 +3,7 @@
 
 
 .filter-card {
+    z-index: 99999;
     position: fixed;
     top: 0;
     left: 0;
@@ -12,9 +13,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: $letterColorWhite;
   
     .popup {
       background-color: $letterColorWhite;
+      background-color: $backgroundInsertMovies;
       padding: 20px;
       border-radius: 5px;
       text-align: center;

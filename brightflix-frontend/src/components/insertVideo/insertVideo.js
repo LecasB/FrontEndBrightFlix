@@ -15,7 +15,7 @@ function insertCard() {
   cart.classList.toggle("showw");
 }
 
-function InsertVideo() {
+function InsertVideo({ filterType, onFilterChange }) { 
   const [videos, setVideos] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [isDeleteMode, setIsDeleteMode] = useState(false);
@@ -23,10 +23,13 @@ function InsertVideo() {
   const [showModal, setShowModal] = useState(false);
   const [showUpdateModal, setShowUpdateModal] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState(null);
-  const [filterType, setFilterType] = useState('movies'); // Default filter type is movies
-  const [showFilterCard, setShowFilterCard] = useState(false); // State to show/hide filter card
-  const [showEpisodeModal, setShowEpisodeModal] = useState(false); // State to show/hide episode modal
-  const [selectedSeries, setSelectedSeries] = useState(null); // State for selected series
+  const [showFilterCard, setShowFilterCard] = useState(false);
+  const [showEpisodeModal, setShowEpisodeModal] = useState(false);
+  const [selectedSeries, setSelectedSeries] = useState(null);
+
+  useEffect(() => {
+    fetchVideos(filterType); 
+  }, [filterType]);
 
   const fetchVideos = (type) => {
     const endpoint = type === 'series' 
@@ -47,17 +50,15 @@ function InsertVideo() {
       });
   };
 
-  useEffect(() => {
-    fetchVideos(filterType); // Fetch videos based on the default filter type
-  }, [filterType]);
-
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
   };
 
   const handleFilterSelection = (type) => {
-    setFilterType(type);
+    onFilterChange(type); // Update the filter type in the parent component
     setShowFilterCard(false);
+    setSelectedSeries(null); // Reset selected series when switching filters
+    setShowEpisodeModal(false); // Close episode modal when switching filters
     fetchVideos(type);
   };
 
@@ -66,8 +67,12 @@ function InsertVideo() {
   );
 
   const deleteVideoFromAPI = async (id) => {
+    const endpoint = filterType === 'series' 
+      ? `https://brightflixapii.vercel.app/api/v1/series/delete/${id}` 
+      : `https://brightflixapii.vercel.app/api/v1/videos/delete/${id}`;
+    
     try {
-      await axios.delete(`https://brightflixapii.vercel.app/api/v1/videos/delete/${id}`);
+      await axios.delete(endpoint);
     } catch (error) {
       console.error('Error deleting video:', error);
     }
@@ -96,8 +101,12 @@ function InsertVideo() {
   };
 
   const updateVideoInAPI = async (id, updatedData) => {
+    const endpoint = filterType === 'series' 
+      ? `https://brightflixapii.vercel.app/api/v1/series/update/${id}` 
+      : `https://brightflixapii.vercel.app/api/v1/videos/update/${id}`;
+    
     try {
-      await axios.put(`https://brightflixapii.vercel.app/api/v1/videos/update/${id}`, updatedData);
+      await axios.put(endpoint, updatedData);
       setVideos(videos.map(video => 
         video.id === id ? { ...video, ...updatedData } : video
       ));
@@ -116,12 +125,14 @@ function InsertVideo() {
   };
 
   const openEpisodeModal = (series) => {
-    setSelectedSeries(series);
-    setShowEpisodeModal(true);
+    if (filterType === 'series') {
+      setSelectedSeries(series);
+      setShowEpisodeModal(true);
+    }
   };
 
   const selectedVideoObjects = videos.filter(video => selectedVideos.includes(video.id));
-
+  
   return (
     <div className='videoInsert'>
       <div className='addVideo'>

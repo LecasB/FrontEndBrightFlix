@@ -14,7 +14,7 @@ function EpisodeModal({ series, onClose }) {
             <ul>
               {season.episodes.map(episode => (
                 <li key={episode.id}>
-                  {episode.title}<a href={`https://vidsrc.net/embed/${episode.link}`} target="_blank" rel="noopener noreferrer">Watch</a>
+                  {episode.title}<a href={episode.link} target="_blank" rel="noopener noreferrer">Watch</a>
                 </li>
               ))}
             </ul>
