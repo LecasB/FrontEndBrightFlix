@@ -12,7 +12,7 @@ const VideoForm = ({
   duration, setDuration,
   creator, setCreator,
   handleSubmit, submitLabel,
-  handleCancel // Adicione esta prop
+  handleCancel
 }) => {
   return (
     <form onSubmit={handleSubmit}>

@@ -40,8 +40,25 @@ form .modal-actions #insertButton:hover {
   transition: transform 0.3s ease;
   transform: translateX(100%);
 }
+.card .containerRelative {
+  position: relative;
+}
 .card .cancel {
   display: none;
+}
+.card .selection-buttons {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: fit-content;
+  margin: 50px auto;
+  gap: 20px;
+  align-items: center;
+  width: 100%;
+}
+.card .selection-buttons button {
+  height: 200px;
+  width: 100%;
 }
 .card form {
   display: block;
@@ -97,6 +114,9 @@ form .modal-actions #insertButton:hover {
   text-transform: uppercase;
   margin: 0;
 }
+.card h2, .card h3, .card h4 {
+  color: white;
+}
 .card.showw {
   transform: translateX(0%);
 }
@@ -124,8 +144,32 @@ form .modal-actions #insertButton:hover {
   cursor: pointer;
   color: #dd1a00;
 }
+.card .serie button, .card .movie button {
+  width: 100%;
+  margin: 5px 0px;
+}
 .card #card-content {
   margin: 30px 0px;
+}
+.card #card-content .back-btn {
+  margin: 0;
+  width: fit-content;
+  height: fit-content;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+.card #card-content .removeEp {
+  background: transparent;
+  border: none;
+  font-size: 12px;
+  padding: 0px;
+  width: fit-content;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  margin: 0;
+  height: fit-content;
 }
 @media screen and (max-width: 675px) {
   .card {

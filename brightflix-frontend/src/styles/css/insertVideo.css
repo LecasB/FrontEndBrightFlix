@@ -14,6 +14,9 @@ body::-webkit-scrollbar-thumb {
   border-radius: 10px;
   border: 3px solid rgba(17, 17, 17, 0.82);
 }
+body label {
+  font-weight: 700;
+}
 
 h2 {
   margin: 0;
@@ -147,7 +150,7 @@ h2 {
   display: flex;
   width: 95%;
   display: flex;
-  margin: 100px auto;
+  margin: 80px auto;
   flex-direction: column;
 }
 .videoInsert .insertButtons {
@@ -385,6 +388,7 @@ h2 {
   }
   .videoInsert {
     max-width: none;
+    margin: 100px auto;
   }
   .videoInsert .videoInserted {
     flex-direction: column;

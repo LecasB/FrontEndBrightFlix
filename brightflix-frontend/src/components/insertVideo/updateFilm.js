@@ -68,7 +68,7 @@ const UpdateModal = ({ show, onClose, onUpdate, selectedVideo }) => {
         <VideoForm 
           title={title} setTitle={setTitle}
           bannerLink={bannerLink} setBanner={setBanner}
-          movieLink={movieId} setMovie={setMovieId} // Usando movieId aqui
+          movieLink={movieId} setMovie={setMovieId}
           description={description} setDescription={setDescription}
           category={category} setCategory={setCategory}
           rating={rating} setRating={setRating}
