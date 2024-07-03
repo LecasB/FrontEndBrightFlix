@@ -47,14 +47,40 @@
   padding: 0;
 }
 .episode-modal .popup ul li {
-  margin: 10px 0;
+  color: #aaa;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 5px;
+  background-color: rgba(17, 17, 17, 0.82);
+  padding: 10px;
+  margin: 10px 0px;
 }
 .episode-modal .popup a {
-  color: #dd1a00;
+  cursor: pointer;
+  background-color: #dd1a00;
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+  border: none;
+  width: 150px;
+  height: 50px;
+  border-radius: 50px;
+  transition: all 0.3s;
+  border: 1px solid #dd1a00;
+  width: fit-content;
+  height: fit-content;
+  padding: 10px;
+  border-radius: 10px;
   text-decoration: none;
+  font-size: 16px;
+  margin-left: 50px;
 }
 .episode-modal .popup a:hover {
-  text-decoration: underline;
+  color: white;
+  border: 1px solid #dd1a00;
+  transition: all 0.3s;
+  background-color: #aa1400;
 }
 
 /*# sourceMappingURL=epModal.css.map */

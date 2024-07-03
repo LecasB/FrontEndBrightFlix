@@ -55,17 +55,26 @@
       padding: 0;
 
       li {
-        margin: 10px 0;
+        color: $letterFormColor;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        border-radius: 5px;
+        background-color: $inputBackgroundColor;  
+        padding: 10px;
+        margin: 10px 0px;
       }
     }
 
     a {
-      color: $brandColor;
-      text-decoration: none;
-      
-      &:hover {
-        text-decoration: underline;
-      }
+        @include buttons($brandColor);
+        width: fit-content;
+        height: fit-content;
+        padding: 10px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-size: 16px;
+        margin-left: 50px;
     }
   }
 }
