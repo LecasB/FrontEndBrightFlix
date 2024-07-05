@@ -5,7 +5,7 @@ const UpdateModal = ({ show, onClose, onUpdate, selectedVideo }) => {
   const baseMovieUrl = "https://vidsrc.net/embed/";
   const [title, setTitle] = useState('');
   const [bannerLink, setBanner] = useState('');
-  const [movieId, setMovieId] = useState(''); // Apenas o ID do filme
+  const [movieId, setMovieId] = useState(''); 
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
   const [rating, setRating] = useState('');
@@ -19,7 +19,7 @@ const UpdateModal = ({ show, onClose, onUpdate, selectedVideo }) => {
       setTitle(selectedVideo.title || '');
       setDescription(selectedVideo.description || '');
       setCategory(selectedVideo.category || '');
-      setMovieId(selectedVideo.movie ? selectedVideo.movie.replace(baseMovieUrl, '') : ''); // Apenas o ID do filme
+      setMovieId(selectedVideo.movie ? selectedVideo.movie.replace(baseMovieUrl, '') : ''); 
       setBanner(selectedVideo.banner || '');
       setRating(selectedVideo.rating || '');
       setVideoLink(selectedVideo.video || '');
@@ -27,11 +27,11 @@ const UpdateModal = ({ show, onClose, onUpdate, selectedVideo }) => {
       setDuration(selectedVideo.duration || '');
       setCreator(selectedVideo.creator || '');
     } else {
-      // Reset all fields if no selectedVideo
+      
       setTitle('');
       setDescription('');
       setCategory('');
-      setMovieId(''); // Apenas o ID do filme
+      setMovieId('');
       setBanner('');
       setRating('');
       setVideoLink('');

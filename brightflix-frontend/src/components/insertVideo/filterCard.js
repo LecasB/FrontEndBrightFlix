@@ -1,4 +1,3 @@
-// FilterCard.js
 import React from 'react';
 import '../../styles/css/filterCard.css';
 

@@ -5,7 +5,7 @@ const ConfirmationModal = ({ show, onClose, onConfirm, selectedVideos }) => {
     return null;
   }
 
-  console.log(selectedVideos); // This will only log when the modal is shown and there are selected videos
+  console.log(selectedVideos);
 
   return (
     <div className="modal-overlay" role="dialog" aria-labelledby="modal-title" aria-describedby="modal-description">

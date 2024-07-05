@@ -55,10 +55,10 @@ function InsertVideo({ filterType, onFilterChange }) {
   };
 
   const handleFilterSelection = (type) => {
-    onFilterChange(type); // Update the filter type in the parent component
+    onFilterChange(type);
     setShowFilterCard(false);
-    setSelectedSeries(null); // Reset selected series when switching filters
-    setShowEpisodeModal(false); // Close episode modal when switching filters
+    setSelectedSeries(null);
+    setShowEpisodeModal(false);
     fetchVideos(type);
   };
 

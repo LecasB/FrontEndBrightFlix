@@ -19,7 +19,7 @@ function VideoCard({ video, isDeleteMode, isSelected, toggleSelectVideo, onEdit 
   };
 
   return (
-    <div className={`videoInserted ${isDeleteMode ? 'deleteMode' : ''} ${isSelected ? 'selected' : ''}`}>
+    <div className={`videoInserted ${isDeleteMode ? 'deleteMode' : ''} ${isSelected ? 'selected' : ''}`} style={{ cursor: 'pointer' }}>
       {isDeleteMode && (
         <div className={`selectOverlay ${isSelected ? 'selected' : ''}`} onClick={toggleSelectVideo}>
           <div className='selectCircle'>
@@ -44,7 +44,7 @@ function VideoCard({ video, isDeleteMode, isSelected, toggleSelectVideo, onEdit 
           </div>
         </div>
       </div>
-      <div className='info details' >
+      <div className='info details'>
         <div className='fields edit' onClick={() => onEdit(video)}>
           <FaEdit />
         </div>

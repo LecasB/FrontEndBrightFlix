@@ -1,4 +1,3 @@
-// SeriesCard.js
 import React, { useState } from 'react';
 import { FaInfoCircle, FaCalendarAlt, FaUser, FaHandPointer, FaCheckCircle, FaRegCircle, FaEdit } from 'react-icons/fa';
 import StarRating from './starRating';
