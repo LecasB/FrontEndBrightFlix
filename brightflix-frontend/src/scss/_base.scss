@@ -1,11 +1,10 @@
 @import "variables";
 @import "mixins";
 
-body {
+body{
   background-color: $backgroundColorForm;
   font-family: Arial, sans-serif;
-  margin-left: 5%;
-}
+} 
 
 h2 {
   margin: 0;
@@ -18,4 +17,5 @@ h2 {
 }
 .Titles {
   padding-top: 20px;
+  padding-left: 5%;
 }

@@ -84,7 +84,7 @@ function Series() {
     <>
       <Navbar />
       {bannerData && (
-        <Banner
+        <Banner 
           title={bannerData.title}
           rating={bannerData.rating}
           description={bannerData.description}
