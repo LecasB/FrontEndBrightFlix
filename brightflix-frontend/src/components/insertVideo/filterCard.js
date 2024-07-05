@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import '../../styles/css/filterCard.css';
+import StarRatingSelector from './starRating';
 
 function FilterCard({ onClose, onSelectFilter }) {
   const [type, setType] = useState('movies');
   const [category, setCategory] = useState('');
-  const [rating, setRating] = useState('');
+  const [rating, setRating] = useState(0);
   const [categories, setCategories] = useState([]);
   const categoryRef = useRef(null);
 
@@ -83,19 +84,7 @@ function FilterCard({ onClose, onSelectFilter }) {
         </div>
         <div>
           <label>Rating</label>
-          <div className="custom-select">
-            <div className="select-selected" onClick={handleSelectClick}>
-              {rating || 'All'}
-            </div>
-            <div className="select-items select-hide">
-              <div onClick={(e) => handleOptionClick(e, setRating)} data-value="">All</div>
-              <div onClick={(e) => handleOptionClick(e, setRating)} data-value="5">5 Stars</div>
-              <div onClick={(e) => handleOptionClick(e, setRating)} data-value="4">4 Stars</div>
-              <div onClick={(e) => handleOptionClick(e, setRating)} data-value="3">3 Stars</div>
-              <div onClick={(e) => handleOptionClick(e, setRating)} data-value="2">2 Stars</div>
-              <div onClick={(e) => handleOptionClick(e, setRating)} data-value="1">1 Star</div>
-            </div>
-          </div>
+          <StarRatingSelector rating={rating} onChange={setRating} />
         </div>
         <button onClick={handleApplyFilter}>Apply Filter</button>
       </div>
