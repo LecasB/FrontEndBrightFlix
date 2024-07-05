@@ -1,0 +1,13 @@
+@import "../scss/_variables.scss";
+@import "../scss/_base.scss";
+@import "../scss/mixins.scss";
+
+.no-favorites-message{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 50px;
+  color: $letterColorWhite;
+  height: 9em;
+}

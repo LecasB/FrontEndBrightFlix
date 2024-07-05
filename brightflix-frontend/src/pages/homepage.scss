@@ -1,0 +1,32 @@
+@import "../scss/_variables.scss";
+@import "../scss/_base.scss";
+@import "../scss/mixins.scss";
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  gap: 10px;
+}
+
+.search-container input {
+  padding: 10px;
+  font-size: 16px;
+  width: 300px;
+  border: 1px solid $borderColor;
+  border-radius: 5px;
+}
+
+.search-container select {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid $borderColor;
+  border-radius: 5px;
+}
+
+.Films {
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+}

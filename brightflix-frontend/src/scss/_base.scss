@@ -1,0 +1,21 @@
+@import "variables";
+@import "mixins";
+
+body {
+  background-color: $backgroundColorForm;
+  font-family: Arial, sans-serif;
+  margin-left: 5%;
+}
+
+h2 {
+  margin: 0;
+  color: $letterColorWhite;
+}
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+.Titles {
+  padding-top: 20px;
+}
