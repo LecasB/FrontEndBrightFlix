@@ -1,6 +1,6 @@
 import React from "react";
 import "../scss/Banner.scss";
-import Logo from "../logo.png";
+import Logo from "../img/logo.png";
 function Banner({ title, rating, description, banner, fadeOut }) {
   const getRatingColorClass = (rating) => {
     if (rating >= 8) {
@@ -20,7 +20,7 @@ function Banner({ title, rating, description, banner, fadeOut }) {
         <img src={banner} alt={title} />
       </div>
       <div className="textBanner">
-        <a href="/Home">
+        <a href="/">
           <img src={Logo} alt="Brightflix Logo" className="Logo" />
         </a>
         <h1>{title}</h1>
