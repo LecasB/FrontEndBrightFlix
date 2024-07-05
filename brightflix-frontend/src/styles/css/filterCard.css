@@ -12,11 +12,9 @@
   color: white;
 }
 .filter-card .popup {
-  background-color: white;
   background-color: #161616;
   padding: 20px;
   border-radius: 5px;
-  text-align: center;
   position: relative;
 }
 .filter-card .popup .close-btn {
@@ -29,18 +27,86 @@
 .filter-card .popup h1 {
   margin-bottom: 20px;
 }
+.filter-card .popup label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+.filter-card .popup .custom-select {
+  position: relative;
+  font-family: Arial;
+  margin-bottom: 20px;
+  width: 100%;
+}
+.filter-card .popup .custom-select select {
+  display: none;
+}
+.filter-card .popup .select-selected {
+  background-color: rgba(17, 17, 17, 0.82);
+  color: white;
+  padding: 16px;
+  border: 1px solid rgba(17, 17, 17, 0.82);
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+}
+.filter-card .popup .select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: white transparent transparent transparent;
+}
+.filter-card .popup .select-selected.select-arrow-active:after {
+  border-color: transparent transparent white transparent;
+  top: 7px;
+}
+.filter-card .popup .select-items div, .filter-card .popup .select-selected {
+  color: white;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+}
+.filter-card .popup .select-items {
+  position: absolute;
+  background-color: #161616;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  max-height: 200px;
+  overflow: auto;
+}
+.filter-card .popup .select-items::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+.filter-card .popup .select-items {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.filter-card .popup .select-hide {
+  display: none;
+}
+.filter-card .popup .select-items div:hover, .filter-card .popup .same-as-selected {
+  background-color: rgba(17, 17, 17, 0.82);
+}
 .filter-card .popup button {
+  width: 100%;
   background-color: #dd1a00;
   color: white;
   border: none;
-  padding: 10px 20px;
-  margin: 5px;
+  margin-top: 10px;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 .filter-card .popup button:hover {
-  background-color: #dd1a00;
+  background-color: #aa1400;
 }
 
 /*# sourceMappingURL=filterCard.css.map */

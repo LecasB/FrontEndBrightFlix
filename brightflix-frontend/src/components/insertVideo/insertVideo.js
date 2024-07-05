@@ -26,10 +26,11 @@ function InsertVideo({ filterType, onFilterChange }) {
   const [showFilterCard, setShowFilterCard] = useState(false);
   const [showEpisodeModal, setShowEpisodeModal] = useState(false);
   const [selectedSeries, setSelectedSeries] = useState(null);
+  const [filters, setFilters] = useState({ type: filterType, category: '', rating: '' });
 
   useEffect(() => {
-    fetchVideos(filterType); 
-  }, [filterType]);
+    fetchVideos(filters.type);
+  }, [filterType, filters]);
 
   const fetchVideos = (type) => {
     const endpoint = type === 'series' 
@@ -54,20 +55,21 @@ function InsertVideo({ filterType, onFilterChange }) {
     setSearchTerm(event.target.value);
   };
 
-  const handleFilterSelection = (type) => {
-    onFilterChange(type);
+  const handleFilterSelection = (filterCriteria) => {
+    setFilters(filterCriteria);
     setShowFilterCard(false);
     setSelectedSeries(null);
     setShowEpisodeModal(false);
-    fetchVideos(type);
+    onFilterChange(filterCriteria.type);
   };
 
-  const filteredVideos = videos.filter(video => 
-    video.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredVideos = videos
+    .filter(video => video.title.toLowerCase().includes(searchTerm.toLowerCase()))
+    .filter(video => !filters.rating || video.rating === parseInt(filters.rating))
+    .filter(video => !filters.category || video.category === filters.category);
 
   const deleteVideoFromAPI = async (id) => {
-    const endpoint = filterType === 'series' 
+    const endpoint = filters.type === 'series' 
       ? `https://brightflixapii.vercel.app/api/v1/series/delete/${id}` 
       : `https://brightflixapii.vercel.app/api/v1/videos/delete/${id}`;
     
@@ -101,7 +103,7 @@ function InsertVideo({ filterType, onFilterChange }) {
   };
 
   const updateVideoInAPI = async (id, updatedData) => {
-    const endpoint = filterType === 'series' 
+    const endpoint = filters.type === 'series' 
       ? `https://brightflixapii.vercel.app/api/v1/series/update/${id}` 
       : `https://brightflixapii.vercel.app/api/v1/videos/update/${id}`;
     
@@ -125,7 +127,7 @@ function InsertVideo({ filterType, onFilterChange }) {
   };
 
   const openEpisodeModal = (series) => {
-    if (filterType === 'series') {
+    if (filters.type === 'series') {
       setSelectedSeries(series);
       setShowEpisodeModal(true);
     }
@@ -158,7 +160,7 @@ function InsertVideo({ filterType, onFilterChange }) {
       <div className='videoCards'>
         {filteredVideos.length > 0 ? (
           filteredVideos.map((video) => (
-            filterType === 'movies' ? (
+            filters.type === 'movies' ? (
               <VideoCard
                 key={video.id}
                 video={video}

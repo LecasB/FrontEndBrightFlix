@@ -8,13 +8,13 @@ function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleRegister = async (event) => {
     event.preventDefault();
+
     if (password !== confirmPassword) {
-      setError('Passwords do not match.');
+      alert('Passwords do not match.');
       return;
     }
 
@@ -24,10 +24,17 @@ function Register() {
         email,
         password
       });
+
       localStorage.setItem('token', response.data.token);
       navigate('/insert');
     } catch (err) {
-      setError('Registration failed. Please try again.');
+      if (err.response) {
+        alert(err.response.data.message || 'Registration failed. Please try again.');
+      } else if (err.request) {
+        alert('No response from server. Please try again later.');
+      } else {
+        alert('An error occurred. Please try again.');
+      }
     }
   };
 
@@ -79,10 +86,9 @@ function Register() {
           />
           <label>Confirm Password</label>
         </div>
-        {error && <p className='error'>{error}</p>}
         <button className='btnPrimary' type="submit">Register</button>
         <p>OR</p>
-        <button className='btnSecondary' type="button" onClick={() => navigate('/insert')}>Sign In</button>
+        <button className='btnSecondary' type="button" onClick={() => navigate('/login')}>Sign In</button>
         <p className='forgotPassword'>Forgot password?</p>
       </form>
     </div>
