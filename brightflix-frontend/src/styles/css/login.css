@@ -14,6 +14,9 @@ body::-webkit-scrollbar-thumb {
   border-radius: 10px;
   border: 3px solid rgba(17, 17, 17, 0.82);
 }
+body label {
+  font-weight: 700;
+}
 
 h2 {
   margin: 0;
@@ -55,6 +58,18 @@ h2 {
   color: #aaa;
   text-decoration: underline;
   cursor: pointer;
+}
+@media screen and (max-width: 675px) {
+  .backgroundImg .loginForm {
+    min-width: 100px;
+    width: 60%;
+  }
+  .backgroundImg header {
+    left: 0%;
+  }
+  .backgroundImg .logo {
+    width: 250px;
+  }
 }
 .backgroundImg .btnPrimary {
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.925);

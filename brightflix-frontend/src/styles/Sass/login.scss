@@ -12,7 +12,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
 .loginForm {
     background-color: $backgroundColorForm;
     min-width: 400px;
@@ -40,6 +39,18 @@
         color: $letterFormColor;
         text-decoration: underline;
         cursor: pointer;
+    }
+}
+@media screen and (max-width: 675px) {
+    .loginForm {
+        min-width: 100px;
+        width: 60%;
+    }
+    header{
+        left:0%;
+    }
+    .logo{
+        width: 250px;
     }
 }
 
