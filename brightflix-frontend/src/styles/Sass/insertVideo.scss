@@ -322,6 +322,9 @@
 }
 
 @media (max-width: 768px) {
+  .insertButtons{
+    display: none;
+  }
   .insertPage{
     header {
       z-index: 9999;
